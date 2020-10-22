@@ -1,6 +1,6 @@
 from typing import List
 from models.Resources import Resources
-class Actividad:
+class Activity:
     # indice
     index:int
     # inicio tiempo de la actividad

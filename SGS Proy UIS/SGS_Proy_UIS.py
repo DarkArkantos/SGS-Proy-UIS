@@ -3,58 +3,62 @@ import numpy as num
 from typing import List
 import operator
 # Models
-from models.Actividad import Actividad
+from models.activity import Activity
 from models.Resources import Resources
 # Utilities
 import utils.randtime as rand
 import utils.print as prt
 
+#Genetics
+import genetics.activities as acts
+
 
 ################################### Proactive Programming #############################
 # Variables
 # Actividades en el proyecto
-activities: List[Actividad] =[]
+activities: List[Activity] =[]
 
 # Máxima cantidad de recursos disponibles por periodo de tiempo -> PL (Project Leader), QA(Quality Assesment), DE(Designer Engineer)
 resources = Resources(10,10,5)
 
 ################################# Variables de desempeño #############################
 smc:List[int]=[]
+    
 
 
-def setListOfActivities():
-    #                        Index Strt Prio Prece         Recursos              Activo Coplet Elegi  end
-    activities.append(Actividad(1,  0,  0, [0],           Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(2,  0,  0, [1],           Resources(5,0,0),     False, False, False, 0))
-    activities.append(Actividad(3,  0,  0, [1],           Resources(0,0,5),     False, False, False, 0))
-    activities.append(Actividad(4,  4,  0, [1],           Resources(2,0,5),     False, False, False, 0))
-    activities.append(Actividad(5,  6,  0, [2,3,4],       Resources(8,0,0),     False, False, False, 0))
-    activities.append(Actividad(6,  7,  0, [5],           Resources(5,0,0),     False, False, False, 0))
-    activities.append(Actividad(7,  0,  0, [1],           Resources(4,0,0),     False, False, False, 0))
-    activities.append(Actividad(8,  8,  0, [6,7],         Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(9,  10, 0, [8],           Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(10, 28, 0, [9],           Resources(0,10,0),    False, False, False, 0))
-    activities.append(Actividad(11, 30, 0, [9],           Resources(0,10,0),    False, False, False, 0))
-    activities.append(Actividad(12, 32, 0, [9],           Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(13, 33, 0, [10,11],       Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(14, 39, 0, [12,13],       Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(15, 41, 0, [14],          Resources(10,0,0),    False, False, False, 0))
-    activities.append(Actividad(16, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(17, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(18, 54, 0, [17],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(19, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(20, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(21, 52, 0, [20],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(22, 60, 0, [16,18,19,21], Resources(5,0,0),     False, False, False, 0))
-    activities.append(Actividad(23, 58, 0, [15],          Resources(5,0,0),     False, False, False, 0))
-    activities.append(Actividad(24, 56, 0, [15],          Resources(0,10,0),    False, False, False, 0))
-    activities.append(Actividad(25, 64, 0, [22,24,23],    Resources(10,0,0),    False, False, False, 0))
-    activities.append(Actividad(26, 66, 0, [25],          Resources(0,0,0),     False, False, False, 0))
-    activities.append(Actividad(27, 70, 0, [26],          Resources(2,0,0),     False, False, False, 0))
-    activities.append(Actividad(28, 90, 0, [27],          Resources(0,0,0),     False, False, False, 0))
+
+def set_activites():
+      #                        Index Strt Prio Prece         Recursos              Activo Coplet Elegi  end
+    activities.append(Activity(1,  0,  0, [0],           Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(2,  0,  0, [1],           Resources(5,0,0),     False, False, False, 0))
+    activities.append(Activity(3,  0,  0, [1],           Resources(0,0,5),     False, False, False, 0))
+    activities.append(Activity(4,  4,  0, [1],           Resources(2,0,5),     False, False, False, 0))
+    activities.append(Activity(5,  6,  0, [2,3,4],       Resources(8,0,0),     False, False, False, 0))
+    activities.append(Activity(6,  7,  0, [5],           Resources(5,0,0),     False, False, False, 0))
+    activities.append(Activity(7,  0,  0, [1],           Resources(4,0,0),     False, False, False, 0))
+    activities.append(Activity(8,  8,  0, [6,7],         Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(9,  10, 0, [8],           Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(10, 28, 0, [9],           Resources(0,10,0),    False, False, False, 0))
+    activities.append(Activity(11, 30, 0, [9],           Resources(0,10,0),    False, False, False, 0))
+    activities.append(Activity(12, 32, 0, [9],           Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(13, 33, 0, [10,11],       Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(14, 39, 0, [12,13],       Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(15, 41, 0, [14],          Resources(10,0,0),    False, False, False, 0))
+    activities.append(Activity(16, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(17, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(18, 54, 0, [17],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(19, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(20, 42, 0, [15],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(21, 52, 0, [20],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(22, 60, 0, [16,18,19,21], Resources(5,0,0),     False, False, False, 0))
+    activities.append(Activity(23, 58, 0, [15],          Resources(5,0,0),     False, False, False, 0))
+    activities.append(Activity(24, 56, 0, [15],          Resources(0,10,0),    False, False, False, 0))
+    activities.append(Activity(25, 64, 0, [22,24,23],    Resources(10,0,0),    False, False, False, 0))
+    activities.append(Activity(26, 66, 0, [25],          Resources(0,0,0),     False, False, False, 0))
+    activities.append(Activity(27, 70, 0, [26],          Resources(2,0,0),     False, False, False, 0))
+    activities.append(Activity(28, 90, 0, [27],          Resources(0,0,0),     False, False, False, 0))
     print('############   Actividades a usar:  ##############')
     prt.print_activities(activities)
-    
 
 
 def printMaxNumberOfResources():
@@ -69,7 +73,7 @@ def reset_activities():
         act.reset_activity()
 
 def init_first_activity():
-    act1 = next(act for act in activities if act.index==1)
+    act1 = next((act for act in activities if act.index==1), None)
     act1.reset_activity()
     act1.active= True
     act1.d = 0
@@ -80,7 +84,7 @@ def schedule_activities():
     tg:int=0
     y:int=0
     H:int=2000
-    first2end:Actividad
+    first2end:Activity
     while y<=len(activities):
         H=2000
         # determinar el tiempo de finalización de las actividades activas
@@ -109,7 +113,7 @@ def schedule_activities():
     print('######## Actividades después de ser programadas ############')
     prt.print_activities(activities)
 
-def schedule_activity(act:Actividad, currentTime:int):
+def schedule_activity(act:Activity, currentTime:int):
     # Se determina si hay suficientes recursos para programar una actividad.
     if(resources.check_enough_resources(act.resources)):
         # Se reducen los recursos disponibles
@@ -121,7 +125,7 @@ def schedule_activity(act:Actividad, currentTime:int):
         # Se cacula el momento en que finaliza
         act.end=currentTime+act.duration
 
-def eval_prec(act:Actividad):
+def eval_prec(act:Activity):
     # Inicia en true para hacer una operación AND en caso de que alguna de las precedencias no se haya completado retorna false
     res:bool=True
     for i in act.pre:
@@ -130,14 +134,14 @@ def eval_prec(act:Actividad):
             res&=actc.completed
     return res and not act.completed and not act.eleg and not act.active
 
-def append_start_time(act:Actividad):
+def append_start_time(act:Activity):
     smc.append(act.end-act.duration)
 
 def calculate_robust(esc:int):
     robust1:float=0.0
     robust2:float=0.0
     counter:int=0
-    obj:Actividad = next(act for act in activities if act.index==28)
+    obj:Activity = next(act for act in activities if act.index==28)
     for i in range(1,len(smc)+1):
         if(i%28==0 and i!=0):
             counter+=1
@@ -166,7 +170,9 @@ def run_reactive():
 def main():
     # Proactive
     printMaxNumberOfResources()
-    setListOfActivities()
+    # sets the group of activitiess
+    #activities = acts.gen_activities()
+    set_activites()
     # Se ordena la lista según el tiempo de inicio de cada actividad esto es equivalente al vector Z(K)
     print('############ Actividades Ordenadas segun su tiempo de inicio ##########')
     activities.sort(key=operator.attrgetter('start'))

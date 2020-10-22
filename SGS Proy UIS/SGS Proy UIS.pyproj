@@ -21,13 +21,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="models\actividad.py">
+    <Compile Include="genetics\activities.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="genetics\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\activity.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\resources.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sgs\parallel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sgs\serie.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sgs\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SGS_Proy_UIS.py" />
@@ -42,7 +57,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="genetics\" />
     <Folder Include="models\" />
+    <Folder Include="sgs\" />
     <Folder Include="utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
