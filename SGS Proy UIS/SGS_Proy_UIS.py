@@ -2,6 +2,7 @@
 import numpy as num
 from typing import List
 import operator
+import sys
 # Models
 from models.activity import Activity
 from models.Resources import Resources
@@ -10,7 +11,11 @@ import utils.randtime as rand
 import utils.print as prt
 
 #Genetics
-import genetics.activities as acts
+import utils.activities_utils as acts
+
+#SGS
+
+from sgs.parallel import Parallel
 
 
 ################################### Proactive Programming #############################
@@ -62,6 +67,7 @@ def set_activites():
 
 
 def printMaxNumberOfResources():
+    print('Recursos disponibles')
     print(f'Resource type: PL, Max Resources: {resources.PL}')
     print(f'Resource type: QA, Max Resources: {resources.QA}')
     print(f'Resource type: DE, Max Resources: {resources.DE}')
@@ -166,21 +172,44 @@ def run_reactive():
     prt.print_timestamp(smc)
     
     
+def sgs_serie():
+    print('|------- Ejecutando Modelo SGS en Serie ------ |')
+
+
+def sgs_parallel():
+    print('|------- Ejecutando Modelo SGS en Paralelo ------ |')
+    paral = Parallel()
+    paral.run()
+
+
+
+def showMenu():
+    print('| Seleccione el modelo con el que desea operar: ')
+    print('|----------------------------------------------|')
+    print('| 1) Modelo SGS Paralelo.......................|')
+    print('| 2) Modelo SGS Serie..........................|')
+    print('|----------------------------------------------|')
+
+    option = int(input('Ingrese su opción: '))
+    
+    if option<=0 and option>2:
+        sys.exit()
+
+    evaluate = {
+            1: sgs_parallel,
+            2: sgs_serie
+        }
+
+    result = evaluate.get(option)
+    result()
+
 
 def main():
+    print(' Software de programación de actividades SGS Serie y paralelo ')
     # Proactive
     printMaxNumberOfResources()
-    # sets the group of activitiess
-    #activities = acts.gen_activities()
-    set_activites()
-    # Se ordena la lista según el tiempo de inicio de cada actividad esto es equivalente al vector Z(K)
-    print('############ Actividades Ordenadas segun su tiempo de inicio ##########')
-    activities.sort(key=operator.attrgetter('start'))
-    prt.print_activities(activities)
-
-    # Reactive
-    run_reactive()
-    #input("Presione cualquier tecla para continuar")
+    # Displays the menu to go through either Parallel or Serie.
+    showMenu()
 
 
 

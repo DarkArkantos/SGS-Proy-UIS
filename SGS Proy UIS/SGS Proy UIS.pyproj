@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="genetics\activities.py">
+    <Compile Include="utils\activities_utils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="genetics\genetic_model.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="genetics\__init__.py">

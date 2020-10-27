@@ -39,8 +39,6 @@ def gen_activities() -> List[Activity] :
     activities.append(Activity(26, 66, 0, [25],          Resources(0,0,0),     False, False, False, 0))
     activities.append(Activity(27, 70, 0, [26],          Resources(2,0,0),     False, False, False, 0))
     activities.append(Activity(28, 90, 0, [27],          Resources(0,0,0),     False, False, False, 0))
-    print('############   Actividades a usar:  ##############')
-    prt.print_activities(activities)
 
     return activities
 
