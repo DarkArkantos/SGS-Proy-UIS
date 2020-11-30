@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="sgs\base_model.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\activities_utils.py">
       <SubType>Code</SubType>
     </Compile>

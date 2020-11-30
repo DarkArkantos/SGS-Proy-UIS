@@ -10,27 +10,21 @@ from models.Resources import Resources
 import utils.randtime as rand
 import utils.print as prt
 
+# SGS
+from sgs.base_model import BaseModel
+
 #Genetics
 import utils.activities_utils as gen_act
 
 
-class Parallel:
+class Parallel(BaseModel):
 
-    # Sort activities
-    # Schdule
-
-    ################################### Proactive Programming #############################
-    # Variables
-    # Actividades en el proyecto
-    activities: List[Activity]
-    # Máxima cantidad de recursos disponibles por periodo de tiempo -> PL (Project Leader), QA(Quality Assesment), DE(Designer Engineer)
-    resources: Resources
     ################################# Variables de desempeño #############################
     smc:List[int]
 
-    def __init__(self):
-        self.activities = []
-        self.resources = Resources(10,10,5)
+    def __init__(self, activities: List[Activity]):
+        resources = Resources(10,10,5)
+        super(Parallel, self).__init__(activities, resources)
         self.smc = []
 
 
@@ -47,14 +41,7 @@ class Parallel:
             act.reset_activity()
 
 
-    def __init_first_activity(self):
-        act1 = next((act for act in self.activities if act.index==1), None)
-        act1.reset_activity()
-        act1.active= True
-        act1.d = 0
-
-
-    def __schedule_activities(self):
+    def schedule_activities(self):
         g:int=0
         tg:int=0
         y:int=0
@@ -76,10 +63,8 @@ class Parallel:
                 # Se completa la actividad si estaba activa y alcanza su tiempo de finalización
                 [act.complete_activity() for act in actives if act.end==tg and not act.completed and act.active]
 
-            # Se determina si las precedencias ya fueron completadas y se define como elegible
-            [act.set_eleg() for act in self.activities if self.__eval_prec(act) and act.index!=1]
             # Se filtran las actividades que son elegibles
-            eleg=[act for act in self.activities if act.eleg]
+            eleg=self.get_elegible_activities()
             if (len(eleg)>0):
                 # Se programan las actividades que sean elegibles y puedan activarse segun los recursos disponibles.
                 [self.__schedule_activity(act, tg) for act in eleg if act.index!=1]
@@ -89,16 +74,14 @@ class Parallel:
         prt.print_activities(self.activities)
 
     def __schedule_activity(self, act:Activity, currentTime:int):
-        # Se determina si hay suficientes recursos para programar una actividad.
-        if(self.resources.check_enough_resources(act.resources)):
-            # Se reducen los recursos disponibles
-            self.resources.reduce_resources(act.resources)
-            act.reset_activity()
-            act.active=True
-            # Se asigna su duración con un número aleatorio
-            act.duration=rand.get_random_duration(act.index)
-            # Se cacula el momento en que finaliza
-            act.end=currentTime+act.duration
+        # Se reducen los recursos disponibles
+        self.resources.reduce_resources(act.resources)
+        act.reset_activity()
+        act.active=True
+        # Se asigna su duración con un número aleatorio
+        act.duration=rand.get_random_duration(act.index)
+        # Se cacula el momento en que finaliza
+        act.end=currentTime+act.duration
 
     def __eval_prec(self, act:Activity):
         # Inicia en true para hacer una operación AND en caso de que alguna de las precedencias no se haya completado retorna false
@@ -133,8 +116,8 @@ class Parallel:
         for x in range(0, esc):
             self.__reset_activities()
             # Se inicia primero la actividad ficticia.
-            self.__init_first_activity()
-            self.__schedule_activities()
+            self.init_first_activity()
+            self.schedule_activities()
             # Se guardan los tiempos de inicio de cada actividad
             [self.__append_start_time(act) for act in self.activities]       
     
@@ -144,24 +127,10 @@ class Parallel:
         prt.print_timestamp(self.smc)
 
 
-    def __set_activities(self):
-        self.activities = gen_act.gen_activities();
-        print(f'\n Activities: {len(self.activities)}')
-        print('############   Available activities:  ##############')
-        prt.print_activities(self.activities)
-
-
-    def __sort_activities(self):
-        # Activities are ordered according to the starting time equivalent to vector Z(K)
-        print('############ Actividades Ordenadas segun su tiempo de inicio ##########')
-        print(f'\n Number of Activities: {len(self.activities)}')
-        self.activities.sort(key=operator.attrgetter('start'))
-        prt.print_activities(self.activities)
-
     def run(self):
         # Activities are defined
-        self.__set_activities()
+        self.print_activities()
         # Activities are ordered
-        self.__sort_activities()
+        self.sort_activities('start')
         # Reactive programming is executed
         self.__run_reactive()
