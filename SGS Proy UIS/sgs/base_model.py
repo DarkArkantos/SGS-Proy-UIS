@@ -40,6 +40,10 @@ class BaseModel:
         print('############   Available activities:  ##############')
         prt.print_activities(self.activities)
 
+    def print_resources(self):
+        print(f'\nCurrent resources: ')
+        prt.print_resources(self.resources)
+
     def get_elegible_activities(self) -> List[Activity]:
         [act.set_eleg() for act in self.activities 
                 if self.__eval_prec(act) and act.index != 1 and self.resources.check_enough_resources(act.resources)]
@@ -47,6 +51,10 @@ class BaseModel:
 
     def select_activity():
         print('not implemented')
+
+    def complete_activity(self, activity: Activity):
+        activity.complete_activity()
+        self.resources.add_resources(activity.resources)
 
     def __eval_prec(self, act:Activity) -> bool:
         # Inicia en true para hacer una operación AND en caso de que alguna de

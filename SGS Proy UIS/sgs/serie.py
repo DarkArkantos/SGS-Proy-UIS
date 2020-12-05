@@ -1,8 +1,11 @@
 from typing import List
 from models.activity import Activity
 from sgs.base_model import BaseModel
-import utils.randtime as rand
+import utils.randtime as random_time
+import utils.print as prnt
 from models.Resources import Resources
+import numpy.random as rand
+import numpy as num
 
 
 class Serie(BaseModel):
@@ -13,35 +16,88 @@ class Serie(BaseModel):
 
     def schedule_activities(self):
         current_time = 0
-        next_step = 1
-        print('Schudeling activities')
+        print('Scheduling activities')
         self.init_first_activity()
         
+        all_scheduled: bool = False
 
-        actives = [act for act in self.activities if act.active]
+        while not all_scheduled:
+            actives = [act for act in self.activities if act.active]
+            ## Completes all the activities that has been completed so far and set free the resources
+            if(len(actives) > 0):
+                [self.complete_activity(act) for act in actives if act.end <= current_time]
 
-        if(len(actives) > 0):
-            [act.complete_activity() for act in actives if act.end < next_step]
+            all_scheduled = self.check_all_scheduled()
+            completed = [act for act in self.activities if act.completed]
+            print('Completed: ')
+            prnt.print_activities(completed)
 
+            ## Evaluate elegible activities
+            eleg = self.get_elegible_activities()
+            max_end = 0
+            while len(eleg)>0:
+                self.print_resources()
+                prnt.print_activities(eleg)
+                # Schedule activities until there aren't any elegible.
+                index = self.select_activities(eleg, current_time)
+                end = self.schedule_activity(eleg[index], current_time)
+                if(end>max_end):
+                    max_end=end
+            
+                for act in eleg:
+                    act.eleg = False
 
-        self.print_activities()
-        ## Evaluate elegible activities
-        eleg = self.get_elegible_activities()
-        # Schedule activities until there aren't any elegible.
-        self.select_activities(eleg, current_time)
+                eleg = self.get_elegible_activities()
+        
+            current_time = max_end
+            print(f'Current time: {current_time}')
 
 
     def select_activities(self, activities: List[Activity], current_time:int):
         probs : List[int] = []
+
+        ## Asigns a temporal ending to determine the probabilty.
+
+        for act in activities:
+            act.end = current_time + act.duration
+
         sum = self.sum_lft(activities)
         ## Sets the end time of the activity
         for act in activities:
-            act.end = current_time + act.duration
-            # TODO: End must be asign before, or the division will resutl in 0.
             prob = act.end / sum
             probs.append(prob)
         ## Probability of being chosen Pj = LFTj/(sum(LFTj1+LFTjn)
+        print('\nProbability: ')
         print(probs)
+
+        ## The index of the activity is chosen.
+        random_value = rand.random_sample()
+        print(f'\nRandom number: {random_value}')
+        index = probs.index(num.max(probs))
+        for i in range(0, len(probs)):
+            if(random_value<=probs[i]):
+                index=i
+
+
+        print(f'\nChosen index: {index}')
+        return index
+
+
+    def check_all_scheduled(self):
+        value: bool = True
+        for act in self.activities:
+            value&=act.completed
+            if not value:
+                return False
+        return value
+
+
+    def schedule_activity(self, act:Activity, currentTime:int):
+        # Se reducen los recursos disponibles
+        self.resources.reduce_resources(act.resources)
+        act.reset_activity()
+        act.active=True
+        return act.end
 
     def sum_lft(self, activities: List[Activity]):
         """Calculates the sum of the LFT"""
@@ -52,7 +108,7 @@ class Serie(BaseModel):
 
     def set_activities(self):
         for act in self.activities:
-            act.duration = rand.get_random_duration(act.index)
+            act.duration = random_time.get_random_duration(act.index)
         self.print_activities()
 
     def run(self):
