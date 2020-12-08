@@ -21,13 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="genetics\genetic.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sgs\base_model.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utils\activities_utils.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="genetics\genetic_model.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="genetics\__init__.py">
@@ -52,10 +52,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SGS_Proy_UIS.py" />
+    <Compile Include="utils\command_line_utils.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\print.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utils\randtime.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utils\ThreadWithReturn.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utils\__init__.py">

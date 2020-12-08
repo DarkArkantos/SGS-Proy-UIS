@@ -23,26 +23,32 @@ class BaseModel:
     # (Project Leader), QA(Quality Assesment), DE(Designer Engineer)
     resources : Resources
 
-    def __init__(self, activities: List[Activity], resources:Resources):
+    with_logs: bool
+
+    def __init__(self, activities: List[Activity], resources:Resources, with_logs: bool):
         self.activities = activities
         self.resources = resources
+        self.with_logs = with_logs;
 
     def sort_activities(self, param: str):
         # Activities are ordered according to the starting time equivalent to
         # vector Z(K)
-        print('############ Actividades Ordenadas segun su tiempo de inicio ##########')
-        print(f'\n Number of Activities: {len(self.activities)}')
         self.activities.sort(key=operator.attrgetter(param))
-        prt.print_activities(self.activities)
+        if(self.with_logs):
+            print('############ Actividades Ordenadas segun su tiempo de inicio ##########')
+            print(f'\n Number of Activities: {len(self.activities)}')
+            prt.print_activities(self.activities)
 
     def print_activities(self):
-        print(f'\n Activities: {len(self.activities)}')
-        print('############   Available activities:  ##############')
-        prt.print_activities(self.activities)
+        if(self.with_logs):
+            print(f'\n Activities: {len(self.activities)}')
+            print('############   Available activities:  ##############')
+            prt.print_activities(self.activities)
 
     def print_resources(self):
-        print(f'\nCurrent resources: ')
-        prt.print_resources(self.resources)
+        if(self.with_logs):
+            print(f'\nCurrent resources: ')
+            prt.print_resources(self.resources)
 
     def get_elegible_activities(self) -> List[Activity]:
         [act.set_eleg() for act in self.activities 

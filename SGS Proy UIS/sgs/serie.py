@@ -10,13 +10,13 @@ import numpy as num
 
 class Serie(BaseModel):
 
-    def __init__(self, activities:List[Activity]):
+    def __init__(self, activities:List[Activity], with_logs:bool = True):
         resources = Resources(10,10,5)
-        super(Serie, self).__init__(activities, resources)
+        super(Serie, self).__init__(activities, resources, with_logs)
 
     def schedule_activities(self):
         current_time = 0
-        print('Scheduling activities')
+        if self.with_logs: print('Scheduling activities')
         self.init_first_activity()
         
         all_scheduled: bool = False
@@ -29,15 +29,23 @@ class Serie(BaseModel):
 
             all_scheduled = self.check_all_scheduled()
             completed = [act for act in self.activities if act.completed]
-            print('Completed: ')
-            prnt.print_activities(completed)
+
+            ## Prints the completed activities so far.
+            if self.with_logs:
+                print(f'Current time: {current_time}')
+                print('####  Activities Completed: ####')
+                prnt.print_activities(completed)
 
             ## Evaluate elegible activities
             eleg = self.get_elegible_activities()
             max_end = 0
             while len(eleg)>0:
-                self.print_resources()
-                prnt.print_activities(eleg)
+
+                ## Prints the current resources and the elegible activities
+                if self.with_logs:
+                    self.print_resources()
+                    prnt.print_activities(eleg)
+
                 # Schedule activities until there aren't any elegible.
                 index = self.select_activities(eleg, current_time)
                 end = self.schedule_activity(eleg[index], current_time)
@@ -50,7 +58,7 @@ class Serie(BaseModel):
                 eleg = self.get_elegible_activities()
         
             current_time = max_end
-            print(f'Current time: {current_time}')
+            
 
 
     def select_activities(self, activities: List[Activity], current_time:int):
@@ -66,20 +74,22 @@ class Serie(BaseModel):
         for act in activities:
             prob = act.end / sum
             probs.append(prob)
-        ## Probability of being chosen Pj = LFTj/(sum(LFTj1+LFTjn)
-        print('\nProbability: ')
-        print(probs)
-
+        
         ## The index of the activity is chosen.
         random_value = rand.random_sample()
-        print(f'\nRandom number: {random_value}')
+        
         index = probs.index(num.max(probs))
         for i in range(0, len(probs)):
             if(random_value<=probs[i]):
                 index=i
 
-
-        print(f'\nChosen index: {index}')
+        if self.with_logs:
+            ## Probability of being chosen Pj = LFTj/(sum(LFTj1+LFTjn)
+            print('\nProbabilities of being chosen: ')
+            print(probs)
+            print(f'\nRandom number: {random_value}')
+            print(f'\nChosen index: {index}')
+        
         return index
 
 
@@ -97,6 +107,8 @@ class Serie(BaseModel):
         self.resources.reduce_resources(act.resources)
         act.reset_activity()
         act.active=True
+        ## TODO Create a partial object that records the starttime
+        act.start = currentTime
         return act.end
 
     def sum_lft(self, activities: List[Activity]):
@@ -111,9 +123,11 @@ class Serie(BaseModel):
             act.duration = random_time.get_random_duration(act.index)
         self.print_activities()
 
-    def run(self):
-        print('Running Serie SGS')
+    def run(self) -> List[Activity]:
+        """Executes a SGS model and returns the List of Activities scheduled"""
+        if self.with_logs: print('Running Serie SGS')
         # Sorts the activities
         self.sort_activities('index')
         self.set_activities()
         self.schedule_activities()
+        return self.activities

@@ -22,9 +22,9 @@ class Parallel(BaseModel):
     ################################# Variables de desempeño #############################
     smc:List[int]
 
-    def __init__(self, activities: List[Activity]):
+    def __init__(self, activities: List[Activity], with_logs:bool = True):
         resources = Resources(10,10,5)
-        super(Parallel, self).__init__(activities, resources)
+        super(Parallel, self).__init__(activities, resources, with_logs)
         self.smc = []
 
 

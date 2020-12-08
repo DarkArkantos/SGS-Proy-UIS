@@ -2,8 +2,8 @@ from typing import List
 from models.activity import Activity
 from models.Resources import Resources
 # Header de las tablas
-header = '    #    Inicio   Duración      Precedencia        Recursos          Activo   Completado  Elegible Finalización '
-divider = '-----------------------------------------------------------------------------------------------------------'
+header = '    #      Inicio   Duración      Precedencia         Recursos          Activo   Completado  Elegible Finalización '
+divider = '-------------------------------------------------------------------------------------------------------------'
 
 def print_resources(res: Resources):
     print(f'PL: {res.PL}  QA: {res.QA}   DE: {res.DE}')

@@ -10,6 +10,7 @@ from models.Resources import Resources
 import utils.randtime as rand
 import utils.print as prt
 import utils.activities_utils as gen_act
+import utils.command_line_utils as cmd
 
 #Genetics
 import utils.activities_utils as acts
@@ -18,20 +19,26 @@ import utils.activities_utils as acts
 
 from sgs.parallel import Parallel
 from sgs.serie import Serie
+from genetics.genetic import Genetic
     
     
 def sgs_serie():
     print('|------- Ejecutando Modelo SGS en Serie ------ |')
     activitties = gen_act.gen_activities();
-    serie = Serie(activitties)
+    serie = Serie(activitties, True)
     serie.run()
 
 
 def sgs_parallel():
-    print('|------- Ejecutando Modelo SGS en Paralelo ------ |')
+    print('\n|------- Ejecutando Modelo SGS en Paralelo ------ |')
     activitties = gen_act.gen_activities();
-    paral = Parallel(activitties)
+    paral = Parallel(activitties, True)
     paral.run()
+
+def sgs_genetic():
+    print('\n|---------- Ejecutando Algoritmo genético --------|')
+    Gen = Genetic(1)
+    Gen.run_genetic()
 
 
 
@@ -40,6 +47,7 @@ def showMenu():
     print('|----------------------------------------------|')
     print('| 1) Modelo SGS Paralelo.......................|')
     print('| 2) Modelo SGS Serie..........................|')
+    print('| 3) Algoritmo genético........................|')
     print('|----------------------------------------------|')
 
     option = int(input('Ingrese su opción: '))
@@ -49,7 +57,8 @@ def showMenu():
 
     evaluate = {
             1: sgs_parallel,
-            2: sgs_serie
+            2: sgs_serie,
+            3: sgs_genetic
         }
 
     result = evaluate.get(option)
