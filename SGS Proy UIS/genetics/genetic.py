@@ -19,12 +19,17 @@ import concurrent.futures as tasks
 class Genetic:
   
     nPobActivities : List[List[Activity]]
+    ## List of the last activity that indicates the makespan of each choromosome
     makeSpan: List[Activity]
+    ## Best makespan obtained so far.
+    best_makespan: List[Activity]
+
     nPob : int
     def __init__(self, nPob: int):
         self.nPob = nPob
         self.nPobActivities = []
         self.makeSpan=[]
+        self.best_makespan = []
     
     def set_npob(self):
         """ Sets the list of chromosomes in the genetic algorithm """
@@ -95,11 +100,24 @@ class Genetic:
             self.makeSpan.append(parallel.run())
     
 
+    def set_best_makespan(self):
+        self.makeSpan.sort('end')
+        current_best: Activity = self.best_makespan[len(self.best_makespan)]
+        new_best:Activity= self.makeSpan[len(self.makeSpan)-1]
+        is_better = new_best.end < current_best.end
+
+        if is_better:
+            self.best_makespan = new_best
+
 
     def run_genetic(self):
         print('......')
+        ## The population is set
         self.set_npob()
+        ## Each chromosome is run using the parallel mode.
         self.run_parallel()
+        ## Sets the Best Makespan
+        self.set_best_makespan()
 
     
 
