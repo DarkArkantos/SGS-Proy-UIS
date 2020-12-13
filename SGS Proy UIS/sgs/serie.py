@@ -130,4 +130,5 @@ class Serie(BaseModel):
         self.sort_activities('index')
         self.set_activities()
         self.schedule_activities()
+        [act.reset_activity() for act in self.activities]
         return self.activities

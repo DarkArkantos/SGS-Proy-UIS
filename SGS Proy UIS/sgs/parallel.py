@@ -21,11 +21,13 @@ class Parallel(BaseModel):
 
     ################################# Variables de desempeño #############################
     smc:List[int]
+    single_esc: bool
 
-    def __init__(self, activities: List[Activity], with_logs:bool = True):
+    def __init__(self, activities: List[Activity], with_logs:bool = True, single_esc = True):
         resources = Resources(10,10,5)
         super(Parallel, self).__init__(activities, resources, with_logs)
         self.smc = []
+        self.single_esc = single_esc
 
 
     def __printMaxNumberOfResources(self):
@@ -112,7 +114,9 @@ class Parallel(BaseModel):
 
     def __run_reactive(self):
         # Número de escenarios requeridos:
-        esc = int(input("Inserte el número de escenarios: "))
+        esc = 1
+        if not self.single_esc:
+            esc = int(input("Inserte el número de escenarios: "))
         for x in range(0, esc):
             self.__reset_activities()
             # Se inicia primero la actividad ficticia.
@@ -127,10 +131,11 @@ class Parallel(BaseModel):
         prt.print_timestamp(self.smc)
 
 
-    def run(self):
+    def run(self) -> Activity:
         # Activities are defined
         self.print_activities()
         # Activities are ordered
         self.sort_activities('start')
         # Reactive programming is executed
         self.__run_reactive()
+        return self.activities[len(self.activities)-1]

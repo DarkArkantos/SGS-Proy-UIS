@@ -1,4 +1,5 @@
 from sgs.serie import Serie
+from sgs.parallel import Parallel
 from models.activity import Activity
 from typing import List
 import utils.activities_utils as gen_act
@@ -9,6 +10,8 @@ import _thread as thread
 from queue import Queue # Python 3.x
 from threading import Thread
 
+import time
+
 import concurrent.futures as tasks
 
 
@@ -16,10 +19,12 @@ import concurrent.futures as tasks
 class Genetic:
   
     nPobActivities : List[List[Activity]]
+    makeSpan: List[Activity]
     nPob : int
     def __init__(self, nPob: int):
         self.nPob = nPob
         self.nPobActivities = []
+        self.makeSpan=[]
     
     def set_npob(self):
         """ Sets the list of chromosomes in the genetic algorithm """
@@ -40,15 +45,17 @@ class Genetic:
         for act in chromosome:
             act.start/=1001
         
-        for i in range(0, 4):
-            print(f'Progress: {(i+1)/10}%', end='\r')
-            res :List[List[Activity]] = self.multi_threading(threads=5)
+        initialTime = time.time()
+        for i in range(0, 5):
+            print(f'Progress: {(i+1)/20}%')
+            res :List[List[Activity]] = self.multi_threading(threads=2)
             print(f'Number of lists: {len(res)}')
             for r in res:
                 for j in range(0, len(r)):
-                    chromosome[j].start += r[j].start / 1001
+                    chromosome[j].start += r[j].start / 101
             
         print()
+        print(f'Time elapsed for creating one Chromosome: \n {time.time()-initialTime}s\n')
         return chromosome
 
     def get_single_sgs_serie(self) -> List[Activity]:
@@ -59,7 +66,7 @@ class Genetic:
     def get_sgs_serie(self) -> List[List[Activity]]:
         print('Thread started')
         res : List[List[Activity]] = []
-        for i in range(0, 50):
+        for i in range(0, 10):
             res.append(self.get_single_sgs_serie())
         print('Thread ended')
         return res
@@ -82,9 +89,18 @@ class Genetic:
         return res
 
 
+    def run_parallel(self):
+        for acts in self.nPobActivities:
+            parallel = Parallel(activities=acts, with_logs=False)
+            self.makeSpan.append(parallel.run())
+    
+
+
     def run_genetic(self):
         print('......')
         self.set_npob()
+        self.run_parallel()
+
     
 
 

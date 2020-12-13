@@ -32,12 +32,13 @@ def sgs_serie():
 def sgs_parallel():
     print('\n|------- Ejecutando Modelo SGS en Paralelo ------ |')
     activitties = gen_act.gen_activities();
-    paral = Parallel(activitties, True)
+    paral = Parallel(activitties, with_logs = True, single_esc=False)
     paral.run()
 
 def sgs_genetic():
     print('\n|---------- Ejecutando Algoritmo genético --------|')
-    Gen = Genetic(1)
+    option = int(input('Ingrese el número de individuos en la población: '))
+    Gen = Genetic(option)
     Gen.run_genetic()
 
 
