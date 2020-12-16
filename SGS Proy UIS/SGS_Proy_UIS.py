@@ -37,8 +37,9 @@ def sgs_parallel():
 
 def sgs_genetic():
     print('\n|---------- Ejecutando Algoritmo genético --------|')
-    option = int(input('Ingrese el número de individuos en la población: '))
-    Gen = Genetic(option)
+    pob = int(input('Ingrese el número de individuos en la población: '))
+    generations = int(input('Ingrese el número de generaciones que desea: '))
+    Gen = Genetic(pib, generations)
     Gen.run_genetic()
 
 

@@ -11,6 +11,7 @@ from queue import Queue # Python 3.x
 from threading import Thread
 
 import time
+import random
 
 import concurrent.futures as tasks
 
@@ -20,16 +21,19 @@ class Genetic:
   
     nPobActivities : List[List[Activity]]
     ## List of the last activity that indicates the makespan of each choromosome
-    makeSpan: List[Activity]
+    makespan: List[Activity]
     ## Best makespan obtained so far.
     best_makespan: List[Activity]
+    ## Number of generations
+    generations: int
 
     nPob : int
-    def __init__(self, nPob: int):
+    def __init__(self, nPob: int, generations):
         self.nPob = nPob
         self.nPobActivities = []
-        self.makeSpan=[]
+        self.makespan=[]
         self.best_makespan = []
+        self.generations = generations
     
     def set_npob(self):
         """ Sets the list of chromosomes in the genetic algorithm """
@@ -97,17 +101,62 @@ class Genetic:
     def run_parallel(self):
         for acts in self.nPobActivities:
             parallel = Parallel(activities=acts, with_logs=False)
-            self.makeSpan.append(parallel.run())
+            self.makespan.append(parallel.run())
     
 
     def set_best_makespan(self):
-        self.makeSpan.sort('end')
-        current_best: Activity = self.best_makespan[len(self.best_makespan)]
-        new_best:Activity= self.makeSpan[len(self.makeSpan)-1]
+        ## List sorted to get the best end
+        makespan_sorted = sorted(self.makespan, key=self.get_end, reverse=True)
+        current_best: Activity = Activity.empty_activity()
+        current_best.end = 1000000
+        index_current_best = 0
+
+        if not len(self.best_makespan) == 0:
+            current_best: Activity = self.best_makespan[len(self.best_makespan)-1]
+            ## Gets the index of the chromosome to which this best chromosome si from.
+            index_current_best = self.makespan.index(current_best)
+
+
+        print('Current best: ')
+        current_best.print_activity()
+
+        print('New best: ')
+        new_best: Activity = makespan_sorted[0]
+        new_best.print_activity()
+        
+        
         is_better = new_best.end < current_best.end
 
         if is_better:
-            self.best_makespan = new_best
+            index:int = self.makespan.index(new_best)
+            self.best_makespan = self.nPobActivities[index]
+
+    def get_end(self, act: Activity):
+        return act.end
+
+
+    def cross_pob(self):
+        new_pob: List[List[Activity]] = []
+
+        for chromosome in self.nPobActivities:
+            new_pob.append(self.get_crossed(chromosome, self.best_makespan))
+
+        self.nPobActivities = new_pob
+
+    def get_crossed(self, chromosome1: List[Activity], chromosome2: List[Activity]):
+
+        cross_point1 = random.randint(0, len(chromosome1))
+        cross_point2 = random.randint(cross_point1, len(chromosome1))
+        print(f'Cross Point 1: {cross_point1}, Cross Point 2: {cross_point2}')
+
+        for i in range(cross_point1, cross_point2):
+            chromosome1[i] = chromosome2[i]
+            chromosome2[i] = chromosome1[i]
+
+        print('Chromosome 1: ')
+        prnt.print_activities(chromosome1)
+        print('Chromosome 2: ')
+        prnt.print_activities(chromosome2)
 
 
     def run_genetic(self):
@@ -118,6 +167,8 @@ class Genetic:
         self.run_parallel()
         ## Sets the Best Makespan
         self.set_best_makespan()
+        ## Crossing
+        self.cross_pob()
 
     
 

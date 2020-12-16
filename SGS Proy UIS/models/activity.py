@@ -31,6 +31,20 @@ class Activity:
         self.completed = completed
         self.eleg = eleg
         self.end = end
+
+    @classmethod
+    def empty_activity(self):
+        return Activity(
+             index = 0,
+             start= 0,
+             duration=0,
+             pre=[0],
+             resources=Resources(0,0,0),
+             active=False,
+             completed = False,
+             eleg = False,
+             end = 0
+            )
     
     def __concat_elements(self):
         res=''
