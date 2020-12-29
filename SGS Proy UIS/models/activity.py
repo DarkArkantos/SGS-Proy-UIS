@@ -66,7 +66,7 @@ class Activity:
 
 
     def print_activity(self):
-        row = "|  {:^3d}  |  {:^5.2f}  |  {:^5d}  |  {:>16s}  |  {:^3d} - {:^3d} - {:^3d}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^3d}  |".format
+        row = "|  {:^3d}  |  {:^5.2f}  |  {:^3.5f}  |  {:>16s}  |  {:^3d} - {:^3d} - {:^3d}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^3.2f}  |".format
         print(row(self.index, self.start, self.duration, self.__concat_elements(), self.resources.PL,self.resources.QA,self.resources.DE, str(self.active), str(self.completed), str(self.eleg), self.end))
 
     

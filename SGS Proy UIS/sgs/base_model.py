@@ -23,12 +23,12 @@ class BaseModel:
     # (Project Leader), QA(Quality Assesment), DE(Designer Engineer)
     resources : Resources
 
-    with_logs: bool
+    with_logs : bool
 
     def __init__(self, activities: List[Activity], resources:Resources, with_logs: bool):
         self.activities = activities
         self.resources = resources
-        self.with_logs = with_logs;
+        self.with_logs = with_logs
 
     def sort_activities(self, param: str):
         # Activities are ordered according to the starting time equivalent to
@@ -66,12 +66,22 @@ class BaseModel:
         # Inicia en true para hacer una operación AND en caso de que alguna de
         # las precedencias no se haya completado retorna false
         res :bool = True
+
         for i in act.pre:
             if(i > 0):
-                actc = next(act for act in self.activities if act.index == i)
-                res&=actc.completed
+                try:
+                    actc = next(act for act in self.activities if act.index == i)
+                    res&=actc.completed
+                except StopIteration:
+                    print('Something weird happened... Discarting Chromosome')
 
         return res and not act.completed and not act.eleg and not act.active
+
+    def __get_index(self, index: int):
+        for i in range(len(self.activities)):
+            if(self.activities[i].index == index):
+                return i
+
 
     def init_first_activity(self):
         act1 = next((act for act in self.activities if act.index == 1), None)

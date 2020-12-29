@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="genetics\chromosome.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="genetics\genetic.py">
       <SubType>Code</SubType>
     </Compile>
