@@ -36,7 +36,7 @@ dic = {
 def get_random_duration(index: int):
     if(index==28 or index==1):
         return 0
-    return rand.beta(a= 11.0/20.0, b= 28.0/8.0)
+    return (rand.beta(a= 11.0/20.0, b= 28.0/8.0)*5)+2
 
 """ddfd
     dic = {

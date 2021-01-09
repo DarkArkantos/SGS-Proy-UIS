@@ -164,12 +164,8 @@ class Genetic:
         for i in range(0, len(self.chromosomes), 2):
             pair = self.get_crossed(self.chromosomes[i], self.chromosomes[i + 1])
             for chromosome in pair:
-                if(chromosome.is_a_valid_chromosome()):
                     new_pob.append(chromosome)
-                else:
-                    print('Chromosome not valid')
-                    new_chromosome = self.set_single_chromosome
-                    new_pob.append(new_chromosome)
+
 
 
         return new_pob
@@ -207,7 +203,7 @@ class Genetic:
         prnt.print_activities(chromosome2.genes)
         return [chromosome1, chromosome2]
 
-    def mutate_chromosome(self, chromosome: Chromosome, places: int=3):
+    def mutate_chromosome(self, chromosome: Chromosome, places: int=1):
         """Mutates a chromosome by moving 10% of the activities a random position between 1-3 places forward
         chromosome -- List[Activitiy] Chromosome to be mutated.
         places -- int Upper limit of places the activity will be moved. 3 by default
@@ -225,12 +221,16 @@ class Genetic:
                 new_index = new_index - chromosome_len + 2 # Moves to extra positions to avoid first activity 
             gene1 = chromosome.genes[gene_index]
             gene2 = chromosome.genes[new_index]
+
             ## Updates the new indexes
             gene1.index = new_index + 1
             gene2.index = gene_index + 1
             ## Sets the genes in the chromosome
             chromosome.genes[new_index] = gene1
             chromosome.genes[gene_index] = gene2
+            if(not chromosome.is_a_valid_chromosome()):
+                print('Chromosome not valid')
+                return
             print('After mutation: ')
             prnt.print_activities(chromosome.genes)
         
