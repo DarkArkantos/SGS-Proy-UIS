@@ -24,18 +24,15 @@ class Parallel(BaseModel):
     single_esc: bool
 
     def __init__(self, activities: List[Activity], with_logs:bool = True, single_esc = True):
-        resources = Resources(10,10,5)
+        resources = Resources([10,10,5])
         super(Parallel, self).__init__(activities, resources, with_logs)
         self.smc = []
         self.single_esc = single_esc
 
 
     def __printMaxNumberOfResources(self):
-        print('Recursos disponibles')
-        print(f'Resource type: PL, Max Resources: {self.resources.PL}')
-        print(f'Resource type: QA, Max Resources: {self.resources.QA}')
-        print(f'Resource type: DE, Max Resources: {self.resources.DE}')
-        print('')    
+        print('Available Resources: ')
+        prt.print_resources(self.resources)
 
     ################### Reactive Programming ######################
     def __reset_activities(self):
@@ -88,7 +85,7 @@ class Parallel(BaseModel):
     def __eval_prec(self, act:Activity):
         # Inicia en true para hacer una operación AND en caso de que alguna de las precedencias no se haya completado retorna false
         res:bool=True
-        for i in act.pre:
+        for i in act.precedence:
             if(i>0):
                 actc=next(act for act in self.activities if act.index==i)
                 res&=actc.completed

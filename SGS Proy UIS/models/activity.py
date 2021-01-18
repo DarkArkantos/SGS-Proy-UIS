@@ -1,31 +1,36 @@
-from typing import List
+from typing import List, Optional
 from models.Resources import Resources
+from dataclasses import dataclass, field
+import marshmallow_dataclass
+import marshmallow.validate
+
+@dataclass
 class Activity:
     # indice
     index:int
     # inicio tiempo de la actividad
-    start:float
+    start:Optional[float]
     # prioridad
-    duration:int
+    duration:Optional[int]
     # precedencia
-    pre:List[int]
+    precedence:List[int]
     # recursos [0,0,0]
-    resources:Resources
+    resources:List[int]
     # activa
-    active:bool
+    active:Optional[bool]
     # completada
-    completed:bool
+    completed:Optional[bool]
     # elegible
-    eleg:bool
+    eleg:Optional[bool]
     # tiempo de finalización
-    end:int
+    end:Optional[int]
 
 
-    def __init__(self, index:int, start:int, duration:int, pre:List[int], resources:Resources, active:bool, completed:bool, eleg:bool, end:int):
+    def __init__(self, index:int, start:int, duration:int, precedence:List[int], resources:List[int], active:bool, completed:bool, eleg:bool, end:int):
         self.index = index
         self.start=start
         self.duration=duration
-        self.pre=pre
+        self.precedence=precedence
         self.resources=resources
         self.active=active
         self.completed = completed
@@ -38,8 +43,8 @@ class Activity:
              index = 0,
              start= 0,
              duration=0,
-             pre=[0],
-             resources=Resources(0,0,0),
+             precedence=[0],
+             resources=Resources([0,0,0]),
              active=False,
              completed = False,
              eleg = False,
@@ -48,8 +53,8 @@ class Activity:
     
     def __concat_elements(self):
         res=''
-        for index in range(0, len(self.pre)):
-            res+=str(self.pre[index])+', '
+        for index in range(0, len(self.precedence)):
+            res+=str(self.precedence[index])+', '
         return res
     def complete_activity(self):
         self.reset_activity()
@@ -66,7 +71,7 @@ class Activity:
 
 
     def print_activity(self):
-        row = "|  {:^3d}  |  {:^5.2f}  |  {:^3.5f}  |  {:>16s}  |  {:^3d} - {:^3d} - {:^3d}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^3.2f}  |".format
-        print(row(self.index, self.start, self.duration, self.__concat_elements(), self.resources.PL,self.resources.QA,self.resources.DE, str(self.active), str(self.completed), str(self.eleg), self.end))
+        row = "|  {:^3d}  |  {:^5.2f}  |  {:^3.5f}  |  {:>16s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^3.2f}  |".format
+        print(row(self.index, self.start, self.duration, self.__concat_elements(), str(self.resources), str(self.active), str(self.completed), str(self.eleg), self.end))
 
     

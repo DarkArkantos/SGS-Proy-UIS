@@ -1,16 +1,20 @@
 from sgs.serie import Serie
 from sgs.parallel import Parallel
 from models.activity import Activity
+from models.instance import Instance
+from models.pascal_scheme import PascalScheme
 from typing import List
 import utils.activities_utils as gen_act
 from utils.ThreadWithReturn import ThreadWithReturn
 import utils.print as prnt
 from genetics.chromosome import Chromosome
+import marshmallow_dataclass
 import copy
-
+import sys
 import time
 import random
 import operator
+import json
 
 import concurrent.futures as tasks
 
@@ -44,13 +48,27 @@ class Genetic:
         self.mutation_rate = mutation_rate
         self.fitness_reference = Activity.empty_activity()
     
-    def set_npob(self):
+    def set_experimental_pob(self):
         """ Sets the list of chromosomes in the genetic algorithm """
         for i in range(0, self.nPob):
             print(f'Chromosome: {i}')
             chromosome = self.set_single_chromosome()
             prnt.print_activities(chromosome.genes)
             self.chromosomes.append(chromosome)
+
+    def set_pob_from_json(self):
+        ## Test: D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_2.json
+        print('\n')
+        filepath = input('Place the path to your file here: ')
+        print('\nReading Json file...')      
+        instance_schema = marshmallow_dataclass.class_schema(Instance, base_schema=PascalScheme)()
+
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as j:
+            json_dic = json.loads(j.read())
+
+        instance = instance_schema.load(json_dic)
+        # TODO: Take the activities on the list and produce the rest of chromosomes.
+        print('Json loaded')
 
     def set_single_chromosome(self) -> Chromosome:
         """Creates a single chromosome, this process runs 1000 times to get a good average"""
@@ -235,11 +253,29 @@ class Genetic:
             prnt.print_activities(chromosome.genes)
         
 
+    def menu(self):
+        print('\n')
+        print('| Running genetic algorithm, select one of the following options')
+        print('| 1. Run with simulated data ................................. |')
+        print('| 2. Run with model from JsonFile .............................|')
+        print('| 3. Exit .....................................................|')
+        print('\n')
+        option = int(input('Option: '))
+
+        if option<=0 and option>2:
+            sys.exit()
+
+        evaluate = {
+            1: self.set_experimental_pob,
+            2: self.set_pob_from_json,
+            3: sys.exit
+            }
+        result = evaluate.get(option)
+        result()
 
     def run_genetic(self):
         print('......')
-        ## The population is set
-        self.set_npob()
+        self.menu()
         for i in range(0, self.generations):
             ## Each chromosome is run using the parallel mode.
             self.run_parallel()

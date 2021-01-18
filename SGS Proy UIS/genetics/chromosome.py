@@ -14,7 +14,7 @@ class Chromosome(object):
     def is_a_valid_chromosome(self):
         res: bool = True
         for act in self.genes:
-            for pre in act.pre:
+            for pre in act.precedence:
                 if(not pre< act.index):
                     res&=False
         return res

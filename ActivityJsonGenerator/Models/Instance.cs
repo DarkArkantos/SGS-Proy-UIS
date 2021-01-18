@@ -7,6 +7,6 @@ namespace ActivityJsonGenerator.Models
     public class Instance
     {
         public List<Activity> Activities { get; set; }
-        public int[] AvailableResources { get; set; }
+        public int[] Resources { get; set; }
     }
 }

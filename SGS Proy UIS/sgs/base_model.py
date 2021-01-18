@@ -25,7 +25,7 @@ class BaseModel:
 
     with_logs : bool
 
-    def __init__(self, activities: List[Activity], resources:Resources, with_logs: bool):
+    def __init__(self, activities: List[Activity], resources: Resources, with_logs: bool):
         self.activities = activities
         self.resources = resources
         self.with_logs = with_logs
@@ -67,7 +67,7 @@ class BaseModel:
         # las precedencias no se haya completado retorna false
         res :bool = True
 
-        for i in act.pre:
+        for i in act.precedence:
             if(i > 0):
                 try:
                     actc = next(act for act in self.activities if act.index == i)

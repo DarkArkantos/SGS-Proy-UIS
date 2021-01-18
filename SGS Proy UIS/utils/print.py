@@ -5,8 +5,9 @@ from models.Resources import Resources
 header = '    #      Inicio   Duración      Precedencia         Recursos          Activo   Completado  Elegible Finalización '
 divider = '-------------------------------------------------------------------------------------------------------------'
 
-def print_resources(res: Resources):
-    print(f'PL: {res.PL}  QA: {res.QA}   DE: {res.DE}')
+def print_resources(res: List[int]):
+    for i in range(res):
+        print(f'R{i}: {res[i]}\n')
 
 def print_timestamp(smc:List[int]):
     for sm in range(len(smc)):

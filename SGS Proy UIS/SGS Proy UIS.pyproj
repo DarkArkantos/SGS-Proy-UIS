@@ -27,6 +27,15 @@
     <Compile Include="genetics\genetic.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\activity_scheme.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\instance.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\pascal_scheme.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sgs\base_model.py">
       <SubType>Code</SubType>
     </Compile>

@@ -14,17 +14,20 @@ namespace ActivityJsonGenerator
         public static async Task Main(string[] args)
         {
 
-            string[] fileArray = Directory.GetFiles($@"{BaseUri}instanciasj30\", "*.sm");
-            Console.WriteLine($"Found {fileArray.Length}");
-            List<Instance> instances = new List<Instance>();
-            Console.WriteLine("Starting");
-            var instance = await GetInstanceAsync(fileArray[0]);
-            /*foreach (var item in fileArray)
+            //string[] fileArray = Directory.GetFiles($@"{BaseUri}instanciasj30\", "*.sm");j3023_9.sm
+            string[] fileArray =
             {
-                instances.Add(await GetInstanceAsync(item));
+                "j301_2", "j301_10", "j306_3", "j3020_7", "j3023_9", "j3044_9", "j3047_6", "j3014_3", "j3019_5", "j3037_8"
+            };
+            Console.WriteLine($"Found {fileArray.Length}");
+            Console.WriteLine("Starting");
+            foreach (var item in fileArray)
+            {
+                var instance = await GetInstanceAsync($@"{BaseUri}instanciasj30\{item}.sm");
+                using FileStream createStream = File.Create(@$"{BaseUri}..\Resources\instance{item}.json");
+                //, new JsonSerializerOptions { WriteIndented = true }
+                await JsonSerializer.SerializeAsync(createStream, instance);
             }
-            using FileStream createStream = File.Create(@$"{BaseUri}\Output\instances.json");
-            await JsonSerializer.SerializeAsync(createStream, instances);*/
         }
 
         private static async Task<Instance> GetInstanceAsync(string fileName)
@@ -32,33 +35,51 @@ namespace ActivityJsonGenerator
             string content = await File.ReadAllTextAsync(fileName);
             content = content.Substring(1);
             string[] sections = content.Split("************************************************************************");
-            int index = sections[3].LastIndexOf("successors")+("successors").Length;
-            string[] activities = sections[3].Substring(index).Split("\n");
+            int index = sections[3].LastIndexOf("successors") + ("successors").Length;
+            string[] activities = sections[3][index..].Split("\n");
             var parsedActivities = ExtractActivities(activities);
             string durations = sections[4];
-            Console.WriteLine(activities);
-            throw new NotImplementedException();
+            await FixPrecedences(parsedActivities);
+            await SetDurations(parsedActivities, durations);
+            var resources = ExtractValuesFromRow(sections[5].Split("\n")[3]);
+            var instance = new Instance
+            {
+                Activities = parsedActivities,
+                Resources = resources
+            };
+            return instance;
+        }
+
+        private static Task SetDurations(List<Activity> parsedActivities, string durations)
+        {
+            var divider = "------------------------------------------------------------------------";
+            var content = durations[(durations.LastIndexOf(divider) + divider.Length)..];
+            var rows = content.Split("\n");
+            for (int i = 1; i < rows.Length-1; i++)
+            {
+                var values = ExtractValuesFromRow(rows[i]);
+                parsedActivities[i-1].Duration = values[2];
+                parsedActivities[i-1].Resources = values[3..];
+            }
+            return Task.CompletedTask;
         }
 
         private static List<Activity> ExtractActivities(string[] activities)
         {
             var result = new List<Activity>();
-            string[] values;
-            for (int i = 1; i < activities.Length-1; i++)
+            int[] values;
+            for (int i = 1; i < activities.Length - 1; i++)
             {
-                values = activities[i].Split(" ")
-                    .Select(item => item.Trim())
-                    .Where(value => !string.IsNullOrEmpty(value))
-                    .ToArray();
+                values = ExtractValuesFromRow(activities[i]);
                 var activity = new Activity
                 {
-                    Index = int.Parse(values[0]),
+                    Index = values[0],
                     Precedence = new List<int>()
                 };
 
                 for (int j = 3; j < values.Length; j++)
                 {
-                    activity.Precedence.Add(int.Parse(values[j]));
+                    activity.Precedence.Add(values[j]);
                 }
 
                 result.Add(activity);
@@ -68,9 +89,31 @@ namespace ActivityJsonGenerator
             return result;
         }
 
-        private static void FixPrecedences(List<Activity> activities)
+        private static Task FixPrecedences(List<Activity> activities)
         {
+            foreach (var activity in activities)
+            {
+                var res = activities
+                    .Where(act => activity.Precedence.Any(p => p == act.Index))
+                    .Select(act =>
+                    {
+                        act.Precedence.Add(activity.Index);
+                        return act;
+                    }).ToList();
+            }
+            activities.ForEach(activity => activity.Precedence.RemoveAll(p => p >= activity.Index));
+            activities.OrderByDescending(act => act.Index);
+            return Task.CompletedTask;
+        }
 
+        private static int[] ExtractValuesFromRow(string row)
+        {
+           var values = row.Split(" ")
+                    .Select(item => item.Trim())
+                    .Where(value => !string.IsNullOrEmpty(value))
+                    .Select(value =>  int.Parse(value))
+                    .ToArray();
+            return values;
         }
     }
 }

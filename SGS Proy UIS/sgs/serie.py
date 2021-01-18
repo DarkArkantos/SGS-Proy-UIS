@@ -11,7 +11,7 @@ import numpy as num
 class Serie(BaseModel):
 
     def __init__(self, activities:List[Activity], with_logs:bool = True):
-        resources = Resources(10,10,5)
+        resources = Resources([10,10,5])
         super(Serie, self).__init__(activities, resources, with_logs)
 
     def schedule_activities(self):
