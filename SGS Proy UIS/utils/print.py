@@ -1,6 +1,6 @@
 from typing import List
 from models.activity import Activity
-from models.Resources import Resources
+from models.resources import Resources
 # Header de las tablas
 header = '    #      Inicio   Duración      Precedencia         Recursos          Activo   Completado  Elegible Finalización '
 divider = '-------------------------------------------------------------------------------------------------------------'

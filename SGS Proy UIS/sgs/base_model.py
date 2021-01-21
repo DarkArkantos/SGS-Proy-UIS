@@ -6,7 +6,7 @@ import sys
 
 # Models
 from models.activity import Activity
-from models.Resources import Resources
+from models.resources import Resources
 
 # Utilities
 import utils.randtime as rand

@@ -3,16 +3,18 @@ from models.activity import Activity
 from sgs.base_model import BaseModel
 import utils.randtime as random_time
 import utils.print as prnt
-from models.Resources import Resources
+from models.resources import Resources
 import numpy.random as rand
 import numpy as num
 
 
 class Serie(BaseModel):
 
-    def __init__(self, activities:List[Activity], with_logs:bool = True):
-        resources = Resources([10,10,5])
+    experimental: bool
+
+    def __init__(self, activities:List[Activity], resources:List[int], with_logs:bool = True, experimental=True):
         super(Serie, self).__init__(activities, resources, with_logs)
+        self.experimental = experimental
 
     def schedule_activities(self):
         current_time = 0
@@ -119,8 +121,10 @@ class Serie(BaseModel):
         return sum
 
     def set_activities(self):
-        for act in self.activities:
-            act.duration = random_time.get_random_duration(act.index)
+        lenact = len(self.activities)
+        if(self.experimental):
+            for act in self.activities:
+                act.duration = random_time.get_random_duration(act.index)
         self.print_activities()
 
     def run(self) -> List[Activity]:

@@ -5,12 +5,11 @@ import operator
 import sys
 # Models
 from models.activity import Activity
-from models.Resources import Resources
+from models.resources import Resources
 # Utilities
 import utils.randtime as rand
 import utils.print as prt
 import utils.activities_utils as gen_act
-import utils.command_line_utils as cmd
 
 #Genetics
 import utils.activities_utils as acts
@@ -21,18 +20,20 @@ from sgs.parallel import Parallel
 from sgs.serie import Serie
 from genetics.genetic import Genetic
     
-    
+
+resources = Resources([10,10,5])    
+
 def sgs_serie():
     print('|------- Ejecutando Modelo SGS en Serie ------ |')
     activitties = gen_act.gen_activities();
-    serie = Serie(activitties, True)
+    serie = Serie(activitties, resources, True)
     serie.run()
 
 
 def sgs_parallel():
     print('\n|------- Ejecutando Modelo SGS en Paralelo ------ |')
     activitties = gen_act.gen_activities();
-    paral = Parallel(activitties, with_logs = True, single_esc=False)
+    paral = Parallel(activitties, resources, with_logs = True, single_esc=False)
     paral.run()
 
 def sgs_genetic():

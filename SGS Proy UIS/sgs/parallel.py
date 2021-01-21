@@ -5,7 +5,7 @@ import operator
 import sys
 # Models
 from models.activity import Activity
-from models.Resources import Resources
+from models.resources import Resources
 # Utilities
 import utils.randtime as rand
 import utils.print as prt
@@ -23,8 +23,8 @@ class Parallel(BaseModel):
     smc:List[int]
     single_esc: bool
 
-    def __init__(self, activities: List[Activity], with_logs:bool = True, single_esc = True):
-        resources = Resources([10,10,5])
+    def __init__(self, activities: List[Activity], resources:List[int], with_logs:bool = True, single_esc = True):
+        
         super(Parallel, self).__init__(activities, resources, with_logs)
         self.smc = []
         self.single_esc = single_esc

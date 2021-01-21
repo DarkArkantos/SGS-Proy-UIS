@@ -1,5 +1,5 @@
 from typing import List, Optional
-from models.Resources import Resources
+from models.resources import Resources
 from dataclasses import dataclass, field
 import marshmallow_dataclass
 import marshmallow.validate
@@ -26,7 +26,7 @@ class Activity:
     end:Optional[int]
 
 
-    def __init__(self, index:int, start:int, duration:int, precedence:List[int], resources:List[int], active:bool, completed:bool, eleg:bool, end:int):
+    def __init__(self, index:int, start:int, duration:int, precedence:List[int], resources:List[int], active:bool=False, completed:bool=False, eleg:bool=False, end:int=0):
         self.index = index
         self.start=start
         self.duration=duration
@@ -74,4 +74,9 @@ class Activity:
         row = "|  {:^3d}  |  {:^5.2f}  |  {:^3.5f}  |  {:>16s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^3.2f}  |".format
         print(row(self.index, self.start, self.duration, self.__concat_elements(), str(self.resources), str(self.active), str(self.completed), str(self.eleg), self.end))
 
-    
+    def set_default_values(self):
+        self.end = 0
+        self.completed = False
+        self.eleg = False
+        self.active = False
+        self.start = 0

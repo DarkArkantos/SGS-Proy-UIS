@@ -36,6 +36,9 @@
     <Compile Include="models\pascal_scheme.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\resources.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sgs\base_model.py">
       <SubType>Code</SubType>
     </Compile>
@@ -46,9 +49,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\activity.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="models\resources.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\__init__.py">
@@ -64,9 +64,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SGS_Proy_UIS.py" />
-    <Compile Include="utils\command_line_utils.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="utils\print.py">
       <SubType>Code</SubType>
     </Compile>

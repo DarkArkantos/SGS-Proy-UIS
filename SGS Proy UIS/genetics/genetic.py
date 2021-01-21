@@ -3,6 +3,7 @@ from sgs.parallel import Parallel
 from models.activity import Activity
 from models.instance import Instance
 from models.pascal_scheme import PascalScheme
+from models.resources import Resources
 from typing import List
 import utils.activities_utils as gen_act
 from utils.ThreadWithReturn import ThreadWithReturn
@@ -36,6 +37,10 @@ class Genetic:
     nPob : int
     ## mutation rate
     mutation_rate : float
+    ## Resources default
+    resources = Resources([10,10,5])
+    ## Experimental?
+    experimental = True
 
     def __init__(self, nPob: int, generations, mutation_rate: float=0.1):
         if(not nPob % 2 == 0 or not nPob>2):
@@ -59,6 +64,7 @@ class Genetic:
     def set_pob_from_json(self):
         ## Test: D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_2.json
         print('\n')
+        self.experimental = False
         filepath = input('Place the path to your file here: ')
         print('\nReading Json file...')      
         instance_schema = marshmallow_dataclass.class_schema(Instance, base_schema=PascalScheme)()
@@ -66,7 +72,12 @@ class Genetic:
         with open(filepath, 'r', encoding='utf-8', errors='ignore') as j:
             json_dic = json.loads(j.read())
 
-        instance = instance_schema.load(json_dic)
+        instance: Instance = instance_schema.load(json_dic)
+        self.resources:Resources = Resources(instance.resources)
+        for i in range(self.nPob):
+            [act.set_default_values() for act in instance.activities]
+            genes = self.get_single_sgs_serie(instance.activities)
+            self.chromosomes.append(Chromosome(genes=genes))
         # TODO: Take the activities on the list and produce the rest of chromosomes.
         print('Json loaded')
 
@@ -94,17 +105,17 @@ class Genetic:
         print(f'Time elapsed for creating one Chromosome: \n {time.time()-initialTime}s\n')
         return chromosome
 
-    def get_single_sgs_serie(self) -> List[Activity]:
+    def get_single_sgs_serie(self, activities:List[Activity]) -> List[Activity]:
         """Runs the SGS Algorithm once, returns a list of activities representing it."""
-        activitties = gen_act.gen_activities()
-        serie = Serie(activitties, False)
+        serie = Serie(activities, self.resources, False, experimental= self.experimental)
         return serie.run()
 
     def get_sgs_serie(self) -> List[List[Activity]]:
         print('Thread started')
         res : List[List[Activity]] = []
         for i in range(0, 10):
-            res.append(self.get_single_sgs_serie())
+            activities = gen_act.gen_activities()
+            res.append(self.get_single_sgs_serie(activities))
         print('Thread ended')
         return res
 
@@ -128,7 +139,7 @@ class Genetic:
         self.makespan.clear()
         for chromosome in self.chromosomes:
             genes = copy.deepcopy(chromosome.genes)
-            parallel = Parallel(activities=genes, with_logs=False)
+            parallel = Parallel(activities=genes, resources=self.resources, with_logs=False)
             self.makespan.append(parallel.run())
             del parallel
     

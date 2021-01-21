@@ -3,6 +3,7 @@ from typing import List
 
 class Resources():
     resources: List[int]
+
     def __init__(self, resources: List[int]):
         self.resources = resources
 
@@ -22,5 +23,3 @@ class Resources():
 
     def add_resources(self, resource):
         self.__modify_resources(resource, 1)
-
-    
