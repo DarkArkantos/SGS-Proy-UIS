@@ -21,13 +21,46 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="models\actividad.py">
+    <Compile Include="genetics\chromosome.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="genetics\genetic.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\activity_scheme.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\instance.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\pascal_scheme.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\resources.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="sgs\base_model.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utils\activities_utils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="genetics\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\activity.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sgs\parallel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sgs\serie.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sgs\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SGS_Proy_UIS.py" />
@@ -37,12 +70,17 @@
     <Compile Include="utils\randtime.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="utils\ThreadWithReturn.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="genetics\" />
     <Folder Include="models\" />
+    <Folder Include="sgs\" />
     <Folder Include="utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
