@@ -1,0 +1,4502 @@
+[
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 2,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 10,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          8,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 7,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 1,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 3,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 6,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          5,
+          0
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 2,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          9,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 10,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 5,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 9,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 4,
+        "Precedence": [
+          10
+        ],
+        "Resources": [
+          0,
+          0,
+          6,
+          0
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 4,
+        "Precedence": [
+          4,
+          6
+        ],
+        "Resources": [
+          0,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 2,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          0,
+          0,
+          10,
+          0
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 4,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          10
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 10,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          10,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 10,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 7,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          5,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 10,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          7
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 7,
+        "Precedence": [
+          16
+        ],
+        "Resources": [
+          0,
+          0,
+          3,
+          0
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 2,
+        "Precedence": [
+          11,
+          15,
+          17
+        ],
+        "Resources": [
+          0,
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 1,
+        "Precedence": [
+          10
+        ],
+        "Resources": [
+          10,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 2,
+        "Precedence": [
+          18
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 2,
+        "Precedence": [
+          12
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 2,
+        "Precedence": [
+          13,
+          14,
+          19
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          7
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 9,
+        "Precedence": [
+          11,
+          16,
+          17
+        ],
+        "Resources": [
+          7,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 1,
+        "Precedence": [
+          8,
+          22,
+          26
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 4,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 7,
+        "Precedence": [
+          17,
+          22,
+          24
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 8,
+        "Precedence": [
+          25,
+          27,
+          28
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          0
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 9,
+        "Precedence": [
+          20,
+          21,
+          23
+        ],
+        "Resources": [
+          0,
+          6,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      14,
+      10,
+      11,
+      14
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 4,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 3,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 10,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 10,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 5,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          10,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 1,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 7,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 4,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 5,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 7,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 10,
+        "Precedence": [
+          11
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 2,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          0,
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 4,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 5,
+        "Precedence": [
+          14
+        ],
+        "Resources": [
+          0,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 5,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 4,
+        "Precedence": [
+          12
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 3,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 7,
+        "Precedence": [
+          10,
+          18
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 6,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 2,
+        "Precedence": [
+          7,
+          13
+        ],
+        "Resources": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 5,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          0
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 8,
+        "Precedence": [
+          13,
+          18,
+          20
+        ],
+        "Resources": [
+          10,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 3,
+        "Precedence": [
+          17,
+          21
+        ],
+        "Resources": [
+          0,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 3,
+        "Precedence": [
+          12
+        ],
+        "Resources": [
+          5,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 2,
+        "Precedence": [
+          22,
+          23
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 10,
+        "Precedence": [
+          14,
+          22,
+          25
+        ],
+        "Resources": [
+          0,
+          0,
+          5,
+          0
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 3,
+        "Precedence": [
+          15,
+          24,
+          25
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 5,
+        "Precedence": [
+          16,
+          28
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 5,
+        "Precedence": [
+          6,
+          8,
+          26
+        ],
+        "Resources": [
+          7,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 1,
+        "Precedence": [
+          19,
+          23,
+          27
+        ],
+        "Resources": [
+          5,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      11,
+      12,
+      9,
+      9
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 9,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          7
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 3,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          5,
+          6,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 6,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          6,
+          9,
+          3,
+          9
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 8,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          7,
+          0,
+          10,
+          6
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 8,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          0,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 7,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 3,
+        "Precedence": [
+          5,
+          6
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 7,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 1,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          5
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 10,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          8,
+          0,
+          9,
+          9
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 1,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          0,
+          9,
+          9
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 7,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          7
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 7,
+        "Precedence": [
+          10
+        ],
+        "Resources": [
+          0,
+          6,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 7,
+        "Precedence": [
+          7,
+          9
+        ],
+        "Resources": [
+          0,
+          8,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 6,
+        "Precedence": [
+          11,
+          15
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 9,
+        "Precedence": [
+          4,
+          12
+        ],
+        "Resources": [
+          3,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 2,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          0,
+          4,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 7,
+        "Precedence": [
+          13
+        ],
+        "Resources": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 3,
+        "Precedence": [
+          16
+        ],
+        "Resources": [
+          0,
+          10,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 3,
+        "Precedence": [
+          6,
+          18
+        ],
+        "Resources": [
+          9,
+          0,
+          8,
+          10
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 8,
+        "Precedence": [
+          8,
+          17,
+          21
+        ],
+        "Resources": [
+          7,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 9,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          9,
+          6,
+          0
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 1,
+        "Precedence": [
+          3,
+          9
+        ],
+        "Resources": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 1,
+        "Precedence": [
+          20
+        ],
+        "Resources": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 3,
+        "Precedence": [
+          19
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          4
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 10,
+        "Precedence": [
+          2,
+          14,
+          26
+        ],
+        "Resources": [
+          0,
+          10,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 3,
+        "Precedence": [
+          22
+        ],
+        "Resources": [
+          8,
+          5,
+          5,
+          0
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 6,
+        "Precedence": [
+          25,
+          27,
+          28
+        ],
+        "Resources": [
+          1,
+          0,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 4,
+        "Precedence": [
+          16,
+          28
+        ],
+        "Resources": [
+          2,
+          0,
+          10,
+          0
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 3,
+        "Precedence": [
+          11,
+          23,
+          24
+        ],
+        "Resources": [
+          9,
+          3,
+          6,
+          1
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      17,
+      19,
+      23,
+      23
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 3,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 8,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 6,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 5,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          6,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 4,
+        "Precedence": [
+          2,
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 1,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 6,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          7
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 10,
+        "Precedence": [
+          4,
+          8
+        ],
+        "Resources": [
+          0,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 2,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 5,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          0,
+          5,
+          0
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 3,
+        "Precedence": [
+          11
+        ],
+        "Resources": [
+          6,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 8,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 7,
+        "Precedence": [
+          13
+        ],
+        "Resources": [
+          0,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 1,
+        "Precedence": [
+          8
+        ],
+        "Resources": [
+          5,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 3,
+        "Precedence": [
+          6,
+          7
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 2,
+        "Precedence": [
+          6,
+          10,
+          14
+        ],
+        "Resources": [
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 8,
+        "Precedence": [
+          16,
+          17
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 4,
+        "Precedence": [
+          10,
+          12
+        ],
+        "Resources": [
+          0,
+          9,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 8,
+        "Precedence": [
+          13
+        ],
+        "Resources": [
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 2,
+        "Precedence": [
+          8,
+          20
+        ],
+        "Resources": [
+          0,
+          10,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 3,
+        "Precedence": [
+          6,
+          10,
+          21
+        ],
+        "Resources": [
+          0,
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 10,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 7,
+        "Precedence": [
+          9,
+          21,
+          23
+        ],
+        "Resources": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 8,
+        "Precedence": [
+          2,
+          23
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          7
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 2,
+        "Precedence": [
+          13,
+          16,
+          25
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 10,
+        "Precedence": [
+          12,
+          17,
+          26
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 5,
+        "Precedence": [
+          7,
+          24,
+          25
+        ],
+        "Resources": [
+          0,
+          0,
+          9,
+          0
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 1,
+        "Precedence": [
+          14,
+          15,
+          28
+        ],
+        "Resources": [
+          9,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 1,
+        "Precedence": [
+          18,
+          19,
+          27
+        ],
+        "Resources": [
+          0,
+          0,
+          3,
+          0
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 9,
+        "Precedence": [
+          3,
+          17,
+          22
+        ],
+        "Resources": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      12,
+      22,
+      11,
+      16
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 2,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 4,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 5,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 6,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 10,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          5
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 9,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          7,
+          4,
+          0
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 3,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          1,
+          0,
+          9,
+          3
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 1,
+        "Precedence": [
+          5,
+          6
+        ],
+        "Resources": [
+          6,
+          9,
+          0,
+          5
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 10,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          7,
+          7,
+          10
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 4,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          6,
+          9,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 9,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          10,
+          1,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 8,
+        "Precedence": [
+          10
+        ],
+        "Resources": [
+          5,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 8,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          10,
+          6,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 8,
+        "Precedence": [
+          13,
+          14
+        ],
+        "Resources": [
+          0,
+          7,
+          8,
+          10
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 9,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          10,
+          0,
+          5,
+          4
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 5,
+        "Precedence": [
+          13
+        ],
+        "Resources": [
+          0,
+          2,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 1,
+        "Precedence": [
+          8
+        ],
+        "Resources": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 2,
+        "Precedence": [
+          9,
+          17,
+          18
+        ],
+        "Resources": [
+          3,
+          10,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 8,
+        "Precedence": [
+          11,
+          19
+        ],
+        "Resources": [
+          3,
+          0,
+          9,
+          0
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 3,
+        "Precedence": [
+          8,
+          13,
+          16
+        ],
+        "Resources": [
+          0,
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 6,
+        "Precedence": [
+          3,
+          18
+        ],
+        "Resources": [
+          9,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 2,
+        "Precedence": [
+          3,
+          11
+        ],
+        "Resources": [
+          0,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 9,
+        "Precedence": [
+          9,
+          17,
+          22
+        ],
+        "Resources": [
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 8,
+        "Precedence": [
+          7,
+          20,
+          22
+        ],
+        "Resources": [
+          3,
+          3,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 1,
+        "Precedence": [
+          7,
+          11,
+          24
+        ],
+        "Resources": [
+          0,
+          0,
+          6,
+          9
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 8,
+        "Precedence": [
+          19,
+          23,
+          26
+        ],
+        "Resources": [
+          10,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 6,
+        "Precedence": [
+          15,
+          25,
+          27
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 8,
+        "Precedence": [
+          2,
+          9,
+          12
+        ],
+        "Resources": [
+          2,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 9,
+        "Precedence": [
+          12,
+          16,
+          28
+        ],
+        "Resources": [
+          8,
+          8,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 10,
+        "Precedence": [
+          5,
+          14,
+          21
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      25,
+      19,
+      15,
+      23
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 10,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          7,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 9,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          9,
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 2,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          2,
+          0,
+          9,
+          3
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 3,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 8,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          1,
+          10,
+          9
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 5,
+        "Precedence": [
+          3,
+          4,
+          6
+        ],
+        "Resources": [
+          7,
+          0,
+          10,
+          4
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 5,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          0,
+          3,
+          3,
+          1
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 7,
+        "Precedence": [
+          2,
+          3
+        ],
+        "Resources": [
+          0,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 6,
+        "Precedence": [
+          5,
+          8,
+          9
+        ],
+        "Resources": [
+          8,
+          5,
+          1,
+          0
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 5,
+        "Precedence": [
+          6,
+          8
+        ],
+        "Resources": [
+          3,
+          0,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 7,
+        "Precedence": [
+          9,
+          11
+        ],
+        "Resources": [
+          0,
+          8,
+          9,
+          7
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 2,
+        "Precedence": [
+          5,
+          6,
+          8
+        ],
+        "Resources": [
+          6,
+          0,
+          9,
+          2
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 4,
+        "Precedence": [
+          11
+        ],
+        "Resources": [
+          4,
+          6,
+          0,
+          10
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 10,
+        "Precedence": [
+          5,
+          14
+        ],
+        "Resources": [
+          6,
+          3,
+          4,
+          6
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 3,
+        "Precedence": [
+          10,
+          15
+        ],
+        "Resources": [
+          4,
+          9,
+          7,
+          1
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 2,
+        "Precedence": [
+          15
+        ],
+        "Resources": [
+          9,
+          4,
+          3,
+          0
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 1,
+        "Precedence": [
+          17
+        ],
+        "Resources": [
+          8,
+          4,
+          7,
+          7
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 4,
+        "Precedence": [
+          12,
+          16,
+          17
+        ],
+        "Resources": [
+          6,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 4,
+        "Precedence": [
+          15
+        ],
+        "Resources": [
+          8,
+          0,
+          4,
+          5
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 4,
+        "Precedence": [
+          4,
+          18,
+          19
+        ],
+        "Resources": [
+          2,
+          6,
+          3,
+          10
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 10,
+        "Precedence": [
+          13,
+          18,
+          19
+        ],
+        "Resources": [
+          6,
+          1,
+          6,
+          0
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 10,
+        "Precedence": [
+          7,
+          11,
+          13
+        ],
+        "Resources": [
+          6,
+          4,
+          0,
+          7
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 6,
+        "Precedence": [
+          10,
+          18,
+          23
+        ],
+        "Resources": [
+          9,
+          9,
+          0,
+          4
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 2,
+        "Precedence": [
+          4,
+          19,
+          20
+        ],
+        "Resources": [
+          9,
+          8,
+          10,
+          6
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 4,
+        "Precedence": [
+          12,
+          14,
+          23
+        ],
+        "Resources": [
+          0,
+          6,
+          0,
+          5
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 5,
+        "Precedence": [
+          7,
+          12,
+          16
+        ],
+        "Resources": [
+          0,
+          10,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 5,
+        "Precedence": [
+          20,
+          21,
+          22
+        ],
+        "Resources": [
+          9,
+          0,
+          10,
+          5
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 10,
+        "Precedence": [
+          20,
+          24,
+          27
+        ],
+        "Resources": [
+          0,
+          5,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 5,
+        "Precedence": [
+          26,
+          27,
+          28
+        ],
+        "Resources": [
+          3,
+          7,
+          4,
+          7
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 1,
+        "Precedence": [
+          7,
+          22,
+          25
+        ],
+        "Resources": [
+          8,
+          6,
+          5,
+          3
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      26,
+      34,
+      22,
+      24
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 5,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          8,
+          3,
+          5,
+          6
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 4,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          8,
+          7,
+          3,
+          6
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 1,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          10,
+          6,
+          9,
+          1
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 9,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          8,
+          1,
+          7,
+          3
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 4,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          10,
+          3,
+          2,
+          3
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 6,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          4,
+          4,
+          1,
+          7
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 3,
+        "Precedence": [
+          6,
+          7
+        ],
+        "Resources": [
+          8,
+          5,
+          10,
+          10
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 9,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          7,
+          7,
+          4,
+          6
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 1,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          4,
+          10,
+          1,
+          1
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 1,
+        "Precedence": [
+          5,
+          8,
+          10
+        ],
+        "Resources": [
+          3,
+          2,
+          8,
+          7
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 10,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          3,
+          10,
+          1,
+          3
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 3,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          3,
+          8,
+          10,
+          7
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 9,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          6,
+          3,
+          6,
+          3
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 10,
+        "Precedence": [
+          11,
+          13
+        ],
+        "Resources": [
+          4,
+          10,
+          1,
+          4
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 8,
+        "Precedence": [
+          2,
+          14
+        ],
+        "Resources": [
+          8,
+          1,
+          7,
+          7
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 4,
+        "Precedence": [
+          4,
+          5,
+          10
+        ],
+        "Resources": [
+          3,
+          7,
+          10,
+          5
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 4,
+        "Precedence": [
+          8,
+          10,
+          12
+        ],
+        "Resources": [
+          1,
+          7,
+          2,
+          2
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 3,
+        "Precedence": [
+          4,
+          16,
+          18
+        ],
+        "Resources": [
+          5,
+          4,
+          6,
+          9
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 5,
+        "Precedence": [
+          11,
+          17,
+          19
+        ],
+        "Resources": [
+          2,
+          6,
+          4,
+          3
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 9,
+        "Precedence": [
+          4,
+          14,
+          15
+        ],
+        "Resources": [
+          3,
+          6,
+          5,
+          7
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 8,
+        "Precedence": [
+          9,
+          12,
+          21
+        ],
+        "Resources": [
+          7,
+          4,
+          5,
+          9
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 5,
+        "Precedence": [
+          9,
+          13,
+          16
+        ],
+        "Resources": [
+          2,
+          2,
+          5,
+          7
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 10,
+        "Precedence": [
+          8,
+          12,
+          13
+        ],
+        "Resources": [
+          1,
+          8,
+          10,
+          10
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 1,
+        "Precedence": [
+          11,
+          16,
+          18
+        ],
+        "Resources": [
+          1,
+          1,
+          6,
+          9
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 6,
+        "Precedence": [
+          14,
+          17,
+          18
+        ],
+        "Resources": [
+          4,
+          6,
+          2,
+          10
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 10,
+        "Precedence": [
+          9,
+          25,
+          26
+        ],
+        "Resources": [
+          7,
+          7,
+          10,
+          7
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 2,
+        "Precedence": [
+          17,
+          22,
+          23
+        ],
+        "Resources": [
+          2,
+          8,
+          10,
+          8
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 9,
+        "Precedence": [
+          15,
+          24,
+          27
+        ],
+        "Resources": [
+          3,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 6,
+        "Precedence": [
+          20,
+          25,
+          28
+        ],
+        "Resources": [
+          1,
+          5,
+          2,
+          3
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 10,
+        "Precedence": [
+          19,
+          23,
+          24
+        ],
+        "Resources": [
+          4,
+          4,
+          2,
+          4
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      23,
+      32,
+      31,
+      26
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 10,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          2,
+          10,
+          7,
+          2
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 9,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          10,
+          10,
+          8,
+          8
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 3,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          3,
+          7,
+          5,
+          7
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 5,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          1,
+          1,
+          6,
+          5
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 10,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          10,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 4,
+        "Precedence": [
+          2,
+          4
+        ],
+        "Resources": [
+          8,
+          6,
+          7,
+          10
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 9,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          1,
+          9,
+          5,
+          8
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 3,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          2,
+          9,
+          3,
+          6
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 6,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          8,
+          10,
+          3,
+          9
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 2,
+        "Precedence": [
+          9
+        ],
+        "Resources": [
+          8,
+          9,
+          2,
+          7
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 3,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          7,
+          3,
+          8,
+          9
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 2,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          3,
+          2,
+          2,
+          10
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 6,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          4,
+          1,
+          6,
+          9
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 8,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          8,
+          7,
+          3,
+          8
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 2,
+        "Precedence": [
+          7,
+          11
+        ],
+        "Resources": [
+          9,
+          5,
+          7,
+          2
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 5,
+        "Precedence": [
+          12
+        ],
+        "Resources": [
+          3,
+          5,
+          3,
+          3
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 7,
+        "Precedence": [
+          13
+        ],
+        "Resources": [
+          10,
+          4,
+          1,
+          4
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 4,
+        "Precedence": [
+          8,
+          16,
+          18
+        ],
+        "Resources": [
+          6,
+          9,
+          2,
+          2
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 9,
+        "Precedence": [
+          17
+        ],
+        "Resources": [
+          1,
+          8,
+          3,
+          10
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 6,
+        "Precedence": [
+          11
+        ],
+        "Resources": [
+          3,
+          9,
+          3,
+          5
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 5,
+        "Precedence": [
+          9,
+          15
+        ],
+        "Resources": [
+          4,
+          4,
+          8,
+          1
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 7,
+        "Precedence": [
+          14,
+          18
+        ],
+        "Resources": [
+          8,
+          6,
+          9,
+          6
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 2,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          3,
+          9,
+          9,
+          7
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 8,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          9,
+          7,
+          9,
+          8
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 10,
+        "Precedence": [
+          10,
+          24
+        ],
+        "Resources": [
+          5,
+          2,
+          7,
+          3
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 2,
+        "Precedence": [
+          13,
+          22,
+          26
+        ],
+        "Resources": [
+          8,
+          4,
+          2,
+          9
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 7,
+        "Precedence": [
+          23,
+          26
+        ],
+        "Resources": [
+          7,
+          4,
+          8,
+          5
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 8,
+        "Precedence": [
+          16,
+          20,
+          25
+        ],
+        "Resources": [
+          1,
+          7,
+          7,
+          2
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 5,
+        "Precedence": [
+          19,
+          21,
+          27
+        ],
+        "Resources": [
+          2,
+          1,
+          5,
+          8
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 10,
+        "Precedence": [
+          7,
+          28
+        ],
+        "Resources": [
+          5,
+          5,
+          7,
+          3
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      22,
+      23,
+      24,
+      30
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 4,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          9,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 5,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 10,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 8,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 8,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 5,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          9,
+          0
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 7,
+        "Precedence": [
+          5
+        ],
+        "Resources": [
+          0,
+          0,
+          6,
+          0
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 8,
+        "Precedence": [
+          3
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 3,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 9,
+        "Precedence": [
+          10
+        ],
+        "Resources": [
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 3,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 6,
+        "Precedence": [
+          6,
+          8
+        ],
+        "Resources": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 6,
+        "Precedence": [
+          5,
+          6,
+          9
+        ],
+        "Resources": [
+          0,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 8,
+        "Precedence": [
+          3,
+          7,
+          10
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 6,
+        "Precedence": [
+          7,
+          14
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          0
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 10,
+        "Precedence": [
+          5,
+          9
+        ],
+        "Resources": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 2,
+        "Precedence": [
+          11
+        ],
+        "Resources": [
+          7,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 6,
+        "Precedence": [
+          2,
+          9
+        ],
+        "Resources": [
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 6,
+        "Precedence": [
+          15
+        ],
+        "Resources": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 4,
+        "Precedence": [
+          18
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 1,
+        "Precedence": [
+          10,
+          12
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 2,
+        "Precedence": [
+          14,
+          19,
+          22
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          7
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 8,
+        "Precedence": [
+          7,
+          19
+        ],
+        "Resources": [
+          0,
+          0,
+          8,
+          0
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 5,
+        "Precedence": [
+          21,
+          23
+        ],
+        "Resources": [
+          0,
+          8,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 3,
+        "Precedence": [
+          13,
+          20,
+          24
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 5,
+        "Precedence": [
+          17,
+          24,
+          25
+        ],
+        "Resources": [
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 1,
+        "Precedence": [
+          20,
+          22,
+          24
+        ],
+        "Resources": [
+          0,
+          0,
+          9,
+          0
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 3,
+        "Precedence": [
+          14,
+          17,
+          26
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 9,
+        "Precedence": [
+          16,
+          27,
+          28
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 2,
+        "Precedence": [
+          21,
+          26,
+          28
+        ],
+        "Resources": [
+          10,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      14,
+      9,
+      15,
+      17
+    ]
+  },
+  {
+    "Activities": [
+      {
+        "Index": 1,
+        "Duration": 0,
+        "Precedence": [],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 2,
+        "Duration": 3,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          0,
+          3,
+          0
+        ]
+      },
+      {
+        "Index": 3,
+        "Duration": 2,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          0,
+          9,
+          9,
+          4
+        ]
+      },
+      {
+        "Index": 4,
+        "Duration": 9,
+        "Precedence": [
+          1
+        ],
+        "Resources": [
+          3,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 5,
+        "Duration": 6,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          5,
+          1,
+          9
+        ]
+      },
+      {
+        "Index": 6,
+        "Duration": 1,
+        "Precedence": [
+          2
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 7,
+        "Duration": 10,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          5,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "Index": 8,
+        "Duration": 9,
+        "Precedence": [
+          4
+        ],
+        "Resources": [
+          6,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 9,
+        "Duration": 9,
+        "Precedence": [
+          4,
+          5
+        ],
+        "Resources": [
+          0,
+          9,
+          2,
+          0
+        ]
+      },
+      {
+        "Index": 10,
+        "Duration": 10,
+        "Precedence": [
+          3,
+          5,
+          6
+        ],
+        "Resources": [
+          10,
+          6,
+          0,
+          8
+        ]
+      },
+      {
+        "Index": 11,
+        "Duration": 4,
+        "Precedence": [
+          7
+        ],
+        "Resources": [
+          0,
+          0,
+          4,
+          0
+        ]
+      },
+      {
+        "Index": 12,
+        "Duration": 8,
+        "Precedence": [
+          7,
+          10
+        ],
+        "Resources": [
+          4,
+          3,
+          0,
+          6
+        ]
+      },
+      {
+        "Index": 13,
+        "Duration": 10,
+        "Precedence": [
+          3,
+          11
+        ],
+        "Resources": [
+          0,
+          8,
+          7,
+          0
+        ]
+      },
+      {
+        "Index": 14,
+        "Duration": 3,
+        "Precedence": [
+          5,
+          8,
+          13
+        ],
+        "Resources": [
+          1,
+          0,
+          10,
+          0
+        ]
+      },
+      {
+        "Index": 15,
+        "Duration": 9,
+        "Precedence": [
+          8,
+          11,
+          12
+        ],
+        "Resources": [
+          0,
+          9,
+          1,
+          8
+        ]
+      },
+      {
+        "Index": 16,
+        "Duration": 10,
+        "Precedence": [
+          6
+        ],
+        "Resources": [
+          0,
+          0,
+          6,
+          5
+        ]
+      },
+      {
+        "Index": 17,
+        "Duration": 4,
+        "Precedence": [
+          13
+        ],
+        "Resources": [
+          0,
+          8,
+          2,
+          6
+        ]
+      },
+      {
+        "Index": 18,
+        "Duration": 1,
+        "Precedence": [
+          3,
+          9,
+          11
+        ],
+        "Resources": [
+          6,
+          6,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 19,
+        "Duration": 2,
+        "Precedence": [
+          9,
+          13
+        ],
+        "Resources": [
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 20,
+        "Duration": 9,
+        "Precedence": [
+          7,
+          16
+        ],
+        "Resources": [
+          0,
+          4,
+          4,
+          0
+        ]
+      },
+      {
+        "Index": 21,
+        "Duration": 1,
+        "Precedence": [
+          10,
+          19,
+          20
+        ],
+        "Resources": [
+          2,
+          0,
+          8,
+          0
+        ]
+      },
+      {
+        "Index": 22,
+        "Duration": 4,
+        "Precedence": [
+          6,
+          18,
+          19
+        ],
+        "Resources": [
+          7,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 23,
+        "Duration": 10,
+        "Precedence": [
+          14,
+          17,
+          18
+        ],
+        "Resources": [
+          0,
+          0,
+          6,
+          0
+        ]
+      },
+      {
+        "Index": 24,
+        "Duration": 5,
+        "Precedence": [
+          16,
+          22,
+          23
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 25,
+        "Duration": 9,
+        "Precedence": [
+          2,
+          8,
+          17
+        ],
+        "Resources": [
+          6,
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "Index": 26,
+        "Duration": 1,
+        "Precedence": [
+          9,
+          20,
+          25
+        ],
+        "Resources": [
+          8,
+          0,
+          9,
+          4
+        ]
+      },
+      {
+        "Index": 27,
+        "Duration": 2,
+        "Precedence": [
+          10,
+          20,
+          22
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          9
+        ]
+      },
+      {
+        "Index": 28,
+        "Duration": 1,
+        "Precedence": [
+          14,
+          21,
+          27
+        ],
+        "Resources": [
+          0,
+          0,
+          10,
+          0
+        ]
+      },
+      {
+        "Index": 29,
+        "Duration": 7,
+        "Precedence": [
+          12,
+          17,
+          28
+        ],
+        "Resources": [
+          1,
+          0,
+          6,
+          0
+        ]
+      },
+      {
+        "Index": 30,
+        "Duration": 1,
+        "Precedence": [
+          15,
+          22,
+          23
+        ],
+        "Resources": [
+          0,
+          10,
+          2,
+          8
+        ]
+      },
+      {
+        "Index": 31,
+        "Duration": 5,
+        "Precedence": [
+          24,
+          26,
+          28
+        ],
+        "Resources": [
+          6,
+          0,
+          2,
+          9
+        ]
+      },
+      {
+        "Index": 32,
+        "Duration": 0,
+        "Precedence": [
+          29,
+          30,
+          31
+        ],
+        "Resources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "AvailableResources": [
+      12,
+      12,
+      12,
+      12
+    ]
+  }
+]
