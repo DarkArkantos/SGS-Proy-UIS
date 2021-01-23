@@ -70,9 +70,11 @@ class Activity:
         self.eleg=False
 
 
-    def print_activity(self):
-        row = "|  {:^3d} |  {:^5.2f}  |  {:^6.3f}  |  {:>14s}  |  {:^15s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^5.2f}  |".format
-        print(row(self.index, self.start, self.duration, self.__concat_elements(), str(self.resources), str(self.active), str(self.completed), str(self.eleg), self.end))
+    def print_activity(self)-> str:
+        row = "|  {:^3d} |  {:^5.2f}  |  {:^6.3f}  |  {:>14s}  |  {:^15s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^5.2f}  |\n".format
+        line = row(self.index, self.start, self.duration, self.__concat_elements(), str(self.resources), str(self.active), str(self.completed), str(self.eleg), self.end)
+        print(line)
+        return line
 
     def set_default_values(self):
         self.end = 0

@@ -41,6 +41,7 @@ class Genetic:
     resources = Resources([10,10,5])
     ## Experimental?
     experimental = True
+    file_name: str
 
     def __init__(self, nPob: int, generations, mutation_rate: float=0.3):
         if(not nPob % 2 == 0 or not nPob>2):
@@ -65,12 +66,12 @@ class Genetic:
         ## Test: D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_2.json
         print('\n')
         self.experimental = False
-        #filepath = input('Place the path to your file here: ')
-        filepath = "D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_10.json"
+        basefilePath = "D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instance"
+        self.file_name = input('Ingrese la instancia a ejecutar (ej. j603_5): ')
         print('\nReading Json file...')      
         instance_schema = marshmallow_dataclass.class_schema(Instance, base_schema=PascalScheme)()
 
-        with open(filepath, 'r', encoding='utf-8', errors='ignore') as j:
+        with open(f'{basefilePath}{self.file_name}.json', 'r', encoding='utf-8', errors='ignore') as j:
             json_dic = json.loads(j.read())
 
         instance: Instance = instance_schema.load(json_dic)
@@ -220,19 +221,16 @@ class Genetic:
 
         print(f'Cross Point 1: {cross_point1}, Cross Point 2: {cross_point2}')
 
-
+        if mutation_index == 0:
+            self.mutate_chromosome(chromosome1)
+        if mutation_index == 1:
+            self.mutate_chromosome(chromosome2)
 
         for i in range(cross_point1, cross_point2):
             genes1 = copy.deepcopy(chromosome1.genes[i])
             genes2 = copy.deepcopy(chromosome2.genes[i])
             chromosome1.genes[i] = genes2
             chromosome2.genes[i] = genes1
-
-
-        if mutation_index == 0:
-            self.mutate_chromosome(chromosome1)
-        if mutation_index == 1:
-            self.mutate_chromosome(chromosome2)
 
         print('Chromosome 1: ')
         prnt.print_activities(chromosome1.genes)
@@ -313,6 +311,7 @@ class Genetic:
             self.chromosomes = crossed_and_mutated
             print(f'Current Generation: {i}')
             print(f'Current fitness: {self.fitness_reference.end}')
+        prnt.print_to_file(Chromosome(genes=self.best_makespan, fitness= self.fitness_reference.end), self.file_name, self.generations, self.nPob)
     
 
 

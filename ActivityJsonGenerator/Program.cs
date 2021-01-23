@@ -15,15 +15,19 @@ namespace ActivityJsonGenerator
         {
 
             //string[] fileArray = Directory.GetFiles($@"{BaseUri}instanciasj30\", "*.sm");j3023_9.sm
-            string[] fileArray =
+            string[] fileArrayJ30 =
             {
                 "j301_2", "j301_10", "j306_3", "j3020_7", "j3023_9", "j3044_9", "j3047_6", "j3014_3", "j3019_5", "j3037_8"
             };
-            Console.WriteLine($"Found {fileArray.Length}");
-            Console.WriteLine("Starting");
-            foreach (var item in fileArray)
+            string[] fileArrayJ60 =
             {
-                var instance = await GetInstanceAsync($@"{BaseUri}instanciasj30\{item}.sm");
+                "j601_2", "j601_6", "j603_5", "j6011_8", "j6012_10", "j6014_2", "j6017_6", "j6022_10"
+            };
+            Console.WriteLine($"Found {fileArrayJ60.Length}");
+            Console.WriteLine("Starting");
+            foreach (var item in fileArrayJ60)
+            {
+                var instance = await GetInstanceAsync($@"{BaseUri}instanciasj60\{item}.sm");
                 using FileStream createStream = File.Create(@$"{BaseUri}..\Resources\instance{item}.json");
                 //, new JsonSerializerOptions { WriteIndented = true }
                 await JsonSerializer.SerializeAsync(createStream, instance);
