@@ -69,16 +69,17 @@ class Parallel(BaseModel):
                 [self.__schedule_activity(act, tg) for act in eleg if act.index!=1]
             y+=1
 
-        print('######## Actividades después de ser programadas ############')
-        prt.print_activities(self.activities)
+        # print('######## Actividades después de ser programadas ############')
+        # prt.print_activities(self.activities)
 
     def __schedule_activity(self, act:Activity, currentTime:int):
         # Se reducen los recursos disponibles
         self.resources.reduce_resources(act.resources)
         act.reset_activity()
         act.active=True
+        act.start = currentTime
         # Se asigna su duración con un número aleatorio
-        act.duration=rand.get_random_duration(act.index)
+        #act.duration=rand.get_random_duration(act.index)
         # Se cacula el momento en que finaliza
         act.end=currentTime+act.duration
 
@@ -123,16 +124,16 @@ class Parallel(BaseModel):
             [self.__append_start_time(act) for act in self.activities]       
     
         rob=self.__calculate_robust(esc)
-        print(f'Robustez 1: {rob[0]} \nRobustez 2: {rob[1]}')
+        # print(f'Robustez 1: {rob[0]} \nRobustez 2: {rob[1]}')
         #Muestra los tiempos registrados
-        prt.print_timestamp(self.smc)
+        # prt.print_timestamp(self.smc)
 
 
     def run(self) -> Activity:
         # Activities are defined
-        self.print_activities()
+        # self.print_activities()
         # Activities are ordered
         self.sort_activities('start')
         # Reactive programming is executed
         self.__run_reactive()
-        return self.activities[len(self.activities)-1]
+        return self.activities

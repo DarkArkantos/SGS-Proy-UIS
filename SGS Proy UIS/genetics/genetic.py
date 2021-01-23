@@ -42,7 +42,7 @@ class Genetic:
     ## Experimental?
     experimental = True
 
-    def __init__(self, nPob: int, generations, mutation_rate: float=0.1):
+    def __init__(self, nPob: int, generations, mutation_rate: float=0.3):
         if(not nPob % 2 == 0 or not nPob>2):
             raise Exception(f'The populations must be an even number {nPob} and greater than 2')
         self.nPob = nPob
@@ -65,7 +65,8 @@ class Genetic:
         ## Test: D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_2.json
         print('\n')
         self.experimental = False
-        filepath = input('Place the path to your file here: ')
+        #filepath = input('Place the path to your file here: ')
+        filepath = "D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_10.json"
         print('\nReading Json file...')      
         instance_schema = marshmallow_dataclass.class_schema(Instance, base_schema=PascalScheme)()
 
@@ -122,7 +123,6 @@ class Genetic:
     def multi_threading(self, threads: int=3) -> List[Chromosome]:
         thread_list = []
         for i in range(0, threads):
-            #t = Thread(target=self.get_sgs_serie)
             t = ThreadWithReturn(target= self.get_sgs_serie)
             t.start()
             thread_list.append(t)
@@ -137,11 +137,17 @@ class Genetic:
 
     def run_parallel(self):
         self.makespan.clear()
+        chromosomes:List[Chromosome] = []
         for chromosome in self.chromosomes:
             genes = copy.deepcopy(chromosome.genes)
             parallel = Parallel(activities=genes, resources=self.resources, with_logs=False)
-            self.makespan.append(parallel.run())
+            scheduled: List[Activity]= parallel.run()
+            self.makespan.append(scheduled[len(scheduled)-1])
+            chromosome.genes = copy.deepcopy(scheduled)
+            chromosomes.append(chromosome)
             del parallel
+        self.chromosomes.clear()
+        self.chromosomes = chromosomes
     
 
     def set_best_makespan(self):
@@ -162,7 +168,7 @@ class Genetic:
         if is_better:
             index :int = self.makespan.index(new_best)
             self.best_makespan = copy.deepcopy(self.chromosomes[index].genes)
-            self.fitness_reference = new_best
+            self.fitness_reference = copy.deepcopy(new_best)
 
         for chromosome in self.chromosomes:
             act = max(chromosome.genes, key= self.get_end)
@@ -209,8 +215,8 @@ class Genetic:
         chromosome2.genes.sort(key=operator.attrgetter('index'))
 
                 
-        prnt.print_activities(chromosome1.genes)        
-        prnt.print_activities(chromosome2.genes)
+        #prnt.print_activities(chromosome1.genes)        
+        #prnt.print_activities(chromosome2.genes)
 
         print(f'Cross Point 1: {cross_point1}, Cross Point 2: {cross_point2}')
 
@@ -226,10 +232,10 @@ class Genetic:
         if mutation_index == 1:
             self.mutate_chromosome(chromosome2)
 
-        print('Chromosome 1: ')
-        prnt.print_activities(chromosome1.genes)
-        print('Chromosome 2: ')
-        prnt.print_activities(chromosome2.genes)
+        #print('Chromosome 1: ')
+        #prnt.print_activities(chromosome1.genes)
+        #print('Chromosome 2: ')
+        #prnt.print_activities(chromosome2.genes)
         return [chromosome1, chromosome2]
 
     def mutate_chromosome(self, chromosome: Chromosome, places: int=1):
@@ -237,9 +243,10 @@ class Genetic:
         chromosome -- List[Activitiy] Chromosome to be mutated.
         places -- int Upper limit of places the activity will be moved. 3 by default
         """
+        chromosome_to_mutate = copy.deepcopy(chromosome)
         ## Determine how many places each gene is going to be moved
         position = random.randint(1, places)
-        chromosome_len: int = len(chromosome.genes)
+        chromosome_len: int = len(chromosome_to_mutate.genes)
         ## Number of genes to be moved.
         number_of_genes = round(chromosome_len * self.mutation_rate)
         for i in range(0, number_of_genes):
@@ -248,20 +255,23 @@ class Genetic:
             ## Checks that the new index doesn't surpass the len of the array
             if(new_index>=chromosome_len-1):
                 new_index = new_index - chromosome_len + 2 # Moves to extra positions to avoid first activity 
-            gene1 = chromosome.genes[gene_index]
-            gene2 = chromosome.genes[new_index]
+            gene1 = chromosome_to_mutate.genes[gene_index]
+            gene2 = chromosome_to_mutate.genes[new_index]
 
             ## Updates the new indexes
             gene1.index = new_index + 1
             gene2.index = gene_index + 1
             ## Sets the genes in the chromosome
-            chromosome.genes[new_index] = gene1
-            chromosome.genes[gene_index] = gene2
-            if(not chromosome.is_a_valid_chromosome()):
+            chromosome_to_mutate.genes[new_index] = gene1
+            chromosome_to_mutate.genes[gene_index] = gene2
+            #print('After mutation: ')
+            #prnt.print_activities(chromosome_to_mutate.genes)
+            if(not chromosome_to_mutate.is_a_valid_chromosome()):
                 print('Chromosome not valid')
                 return
-            print('After mutation: ')
-            prnt.print_activities(chromosome.genes)
+            # print('After mutation: ')
+            # prnt.print_activities(chromosome.genes)
+            chromosome = chromosome_to_mutate
         
 
     def menu(self):
@@ -290,14 +300,15 @@ class Genetic:
         for i in range(0, self.generations):
             ## Each chromosome is run using the parallel mode.
             self.run_parallel()
-            
             ## Sets the Best Makespan
             self.set_best_makespan()
-
+            
             ## Choose the parents
        
             ## Crossing
-            self.chromosomes = self.cross_pob()
+            crossed_and_mutated = copy.deepcopy(self.cross_pob())
+            self.chromosomes.clear()
+            self.chromosomes = crossed_and_mutated
             print(f'Current Generation: {i}')
             print(f'Current fitness: {self.fitness_reference.end}')
     
