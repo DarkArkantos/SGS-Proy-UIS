@@ -71,7 +71,7 @@ class Activity:
 
 
     def print_activity(self):
-        row = "|  {:^3d}  |  {:^5.2f}  |  {:^5.3f}  |  {:>16s}  |  {:^10s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^3.2f}  |".format
+        row = "|  {:^3d} |  {:^5.2f}  |  {:^6.3f}  |  {:>14s}  |  {:^15s}  |  {:^5s}  |  {:^5s}  |  {:^5s}  |  {:^5.2f}  |".format
         print(row(self.index, self.start, self.duration, self.__concat_elements(), str(self.resources), str(self.active), str(self.completed), str(self.eleg), self.end))
 
     def set_default_values(self):

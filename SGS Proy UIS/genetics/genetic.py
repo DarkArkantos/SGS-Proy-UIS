@@ -223,8 +223,10 @@ class Genetic:
 
 
         for i in range(cross_point1, cross_point2):
-            chromosome1.genes[i] = chromosome2.genes[i]
-            chromosome2.genes[i] = chromosome1.genes[i]
+            genes1 = copy.deepcopy(chromosome1.genes[i])
+            genes2 = copy.deepcopy(chromosome2.genes[i])
+            chromosome1.genes[i] = genes2
+            chromosome2.genes[i] = genes1
 
 
         if mutation_index == 0:
@@ -232,10 +234,10 @@ class Genetic:
         if mutation_index == 1:
             self.mutate_chromosome(chromosome2)
 
-        #print('Chromosome 1: ')
-        #prnt.print_activities(chromosome1.genes)
-        #print('Chromosome 2: ')
-        #prnt.print_activities(chromosome2.genes)
+        print('Chromosome 1: ')
+        prnt.print_activities(chromosome1.genes)
+        print('Chromosome 2: ')
+        prnt.print_activities(chromosome2.genes)
         return [chromosome1, chromosome2]
 
     def mutate_chromosome(self, chromosome: Chromosome, places: int=1):
