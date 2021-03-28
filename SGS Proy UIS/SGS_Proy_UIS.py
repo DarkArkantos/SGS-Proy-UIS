@@ -1,5 +1,6 @@
 # Python libraries
 import numpy as num
+from numpy.random import default_rng
 from typing import List
 import operator
 import sys
@@ -10,7 +11,7 @@ from models.resources import Resources
 import utils.randtime as rand
 import utils.print as prt
 import utils.activities_utils as gen_act
-
+from scipy.stats import beta
 #Genetics
 import utils.activities_utils as acts
 
@@ -43,7 +44,12 @@ def sgs_genetic():
     Gen = Genetic(nPob=pob, generations=gen)
     Gen.run_genetic()
 
-
+def calc_beta():
+    rng = default_rng()
+    a = (11.0/20.0)*10
+    b = (23.0/8.0)*10
+    r = beta.rvs(a, b, loc= a, scale= b-a, size=10)
+    print(r)
 
 def showMenu():
     print('| Seleccione el modelo con el que desea operar: ')
@@ -51,6 +57,7 @@ def showMenu():
     print('| 1) Modelo SGS Paralelo.......................|')
     print('| 2) Modelo SGS Serie..........................|')
     print('| 3) Algoritmo genético........................|')
+    print('| 4) Prueba distribución beta..................|')
     print('|----------------------------------------------|')
 
     option = int(input('Ingrese su opción: '))
@@ -61,7 +68,8 @@ def showMenu():
     evaluate = {
             1: sgs_parallel,
             2: sgs_serie,
-            3: sgs_genetic
+            3: sgs_genetic,
+            4: calc_beta
         }
 
     result = evaluate.get(option)

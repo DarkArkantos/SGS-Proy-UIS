@@ -3,6 +3,8 @@ from models.resources import Resources
 from dataclasses import dataclass, field
 import marshmallow_dataclass
 import marshmallow.validate
+import numpy.random as rand
+from scipy.stats import beta
 
 @dataclass
 class Activity:
@@ -82,3 +84,9 @@ class Activity:
         self.eleg = False
         self.active = False
         self.start = 0
+
+    def set_duration_beta(self):
+        if( not self.duration==0):
+            a = (11.0/20.0)*self.duration
+            b = (23.0/8.0)*self.duration
+            self.duration = beta.rvs(2, 5, a, b)
