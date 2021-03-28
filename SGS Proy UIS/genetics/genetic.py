@@ -77,8 +77,10 @@ class Genetic:
         instance: Instance = instance_schema.load(json_dic)
         self.resources:Resources = Resources(instance.resources)
         for i in range(self.nPob):
-            [act.set_default_values() for act in instance.activities]
-            genes = self.get_single_sgs_serie(instance.activities)
+            activities = copy.deepcopy(instance.activities)
+            [act.set_default_values() for act in activities]
+            [act.set_duration_beta() for act in activities]
+            genes = self.get_single_sgs_serie(activities)
             self.chromosomes.append(Chromosome(genes=genes))
         # TODO: Take the activities on the list and produce the rest of chromosomes.
         print('Json loaded')
@@ -175,7 +177,7 @@ class Genetic:
             act = max(chromosome.genes, key= self.get_end)
             new_fitness = float(new_best.end)/float(act.end)
             chromosome.fitness = new_fitness
-            print(f'new fitness {new_fitness}')
+            #print(f'new fitness {new_fitness}')
 
         print('\n\nCurrent best: ')
         current_best.print_activity()
@@ -219,7 +221,7 @@ class Genetic:
         #prnt.print_activities(chromosome1.genes)        
         #prnt.print_activities(chromosome2.genes)
 
-        print(f'Cross Point 1: {cross_point1}, Cross Point 2: {cross_point2}')
+        #print(f'Cross Point 1: {cross_point1}, Cross Point 2: {cross_point2}')
 
         if mutation_index == 0:
             self.mutate_chromosome(chromosome1)
@@ -231,11 +233,11 @@ class Genetic:
             genes2 = copy.deepcopy(chromosome2.genes[i])
             chromosome1.genes[i] = genes2
             chromosome2.genes[i] = genes1
-
-        print('Chromosome 1: ')
-        prnt.print_activities(chromosome1.genes)
-        print('Chromosome 2: ')
-        prnt.print_activities(chromosome2.genes)
+        
+        #print('Chromosome 1: ')
+        #prnt.print_activities(chromosome1.genes)
+        #print('Chromosome 2: ')
+        #prnt.print_activities(chromosome2.genes)
         return [chromosome1, chromosome2]
 
     def mutate_chromosome(self, chromosome: Chromosome, places: int=1):
@@ -267,7 +269,7 @@ class Genetic:
             #print('After mutation: ')
             #prnt.print_activities(chromosome_to_mutate.genes)
             if(not chromosome_to_mutate.is_a_valid_chromosome()):
-                print('Chromosome not valid')
+                #print('Chromosome not valid')
                 return
             # print('After mutation: ')
             # prnt.print_activities(chromosome.genes)
