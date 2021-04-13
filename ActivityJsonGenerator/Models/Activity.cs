@@ -10,5 +10,7 @@ namespace ActivityJsonGenerator.Models
         public int Duration { get; set; }
         public List<int> Precedence { get; set; }
         public int[] Resources { get; set; }
+        public float Risk1 { get; set; }
+        public float Risk { get; set; }
     }
 }

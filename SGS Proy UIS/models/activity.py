@@ -14,6 +14,7 @@ class Activity:
     start:Optional[float]
     # prioridad
     duration:Optional[int]
+    duration_base: Optional[int]
     # precedencia
     precedence:List[int]
     # recursos [0,0,0]
@@ -26,9 +27,11 @@ class Activity:
     eleg:Optional[bool]
     # tiempo de finalización
     end:Optional[int]
+    # riesgo de la actividad
+    risk1: Optional[float]
+    risk2: Optional[float]
 
-
-    def __init__(self, index:int, start:int, duration:int, precedence:List[int], resources:List[int], active:bool=False, completed:bool=False, eleg:bool=False, end:int=0):
+    def __init__(self, index:int, start:int, duration:int, precedence:List[int], resources:List[int], active:bool=False, completed:bool=False, eleg:bool=False, end:int=0, risk1:float = 0, risk2:float = 0, duration_base:int = 0):
         self.index = index
         self.start=start
         self.duration=duration
@@ -38,6 +41,9 @@ class Activity:
         self.completed = completed
         self.eleg = eleg
         self.end = end
+        self.risk1 = 0
+        self.risk2 = 0
+        self.duration_base = 0
 
     @classmethod
     def empty_activity(self):
@@ -86,7 +92,29 @@ class Activity:
         self.start = 0
 
     def set_duration_beta(self):
+        self.duration_base = self.duration
         if( not self.duration==0):
             a = (11.0/20.0)*self.duration
             b = (23.0/8.0)*self.duration
             self.duration = beta.rvs(2, 5, a, b)
+
+    def set_risk1(self, prob: float):
+        self.risk1 = prob
+
+
+    def set_risk2(self, prob: float):
+        self.risk2 =  prob
+
+    def set_risk3(self, prob1:float, prob2: float):
+        self.risk1 = prob1
+        self.risk2 = prob2
+
+    def eval_risk1(self, prob):
+        prob_risk1 = 0.5 
+        if(self.risk1 > prob):
+            self.set_risk1(0)
+
+    def eval_risk2(self, prob):
+        prob_risk2 = 0.7
+        if(self.risk2 > prob):
+            self.set_risk2(0)

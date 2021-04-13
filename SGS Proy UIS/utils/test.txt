@@ -1,0 +1,41 @@
+
+    def set_partial_rob(self):
+        n_activities = len(self.initial_activities)
+        partial_result=0.0
+        # A1: 2
+        # A2: 4
+        # A3: 6
+        ### Esc 1
+        # A1: 1
+        # A2: 3
+        # A3: 5
+        ### Esc 2
+        # A1: 3
+        # A2: 5
+        # A3: 7
+        #[1, 1, 10]
+        #[1, 2, 30]
+        for index in range(n_activities):
+            partial_result+= abs(self.initial_activities[index].start-self.activities[index].start)/(float(self.esc))
+        self.smc.append(partial_result)
+
+def __calculate_robust(self, esc:int):
+        n_activities = len(self.activities)
+        robust1:float=0.0
+        robust2:float=0.0
+        expected_value: float = 0.0
+        counter:int=0
+        obj:Activity = next(act for act in self.activities if act.index==n_activities)
+        for i in range(1,len(self.smc)+1):
+            if(i%n_activities==0 and i!=0):
+                counter+=1
+                robust2+=(obj.start-self.smc[i-1])/float(esc)
+        for r in self.smc:
+            robust1 +=r
+        
+        for d in self.esc_durations:
+            expected_value += d
+         
+        expected_value = expected_value/float(esc)
+
+        return [robust1/esc, robust2, expected_value]
