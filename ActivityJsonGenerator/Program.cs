@@ -21,7 +21,8 @@ namespace ActivityJsonGenerator
             };
             string[] fileArrayJ60 =
             {
-                "j601_2", "j601_6", "j603_5", "j6011_8", "j6012_10", "j6014_2", "j6017_6", "j6022_10"
+                "j604_6" 
+                //"j601_2", "j601_6", "j603_5", "j6011_8", "j6012_10", "j6014_2", "j6017_6", "j6022_10"
             };
             Console.WriteLine($"Found {fileArrayJ60.Length}");
             Console.WriteLine("Starting");

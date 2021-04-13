@@ -296,6 +296,36 @@ class Genetic:
         result = evaluate.get(option)
         result()
 
+
+    def set_risk(self, activities: List[Activity]):
+            n_activities = []
+            r1 = []
+            r2 = []
+            r3 = []
+            risk_1 = 0.5
+            risk_2 = 0.6
+
+
+            if(len(activities)==32):
+                r1 = [3]
+                r2 = [5, 16, 22, 29, 18]
+                r3 = [4, 9, 17, 29]
+
+            elif(len(activities)==62):
+                r1 = [2, 3, 6, 11, 27, 30, 33, 41, 45, 61]
+                r2 = [12, 14, 20, 29, 38, 50, 51, 56]
+                r3 = [25, 43]
+            
+            else:
+                [act.set_risk3(0, 0) for act in activities]
+
+            for i in r1:
+                [act.set_risk1(risk_1) for act in activities if act.index==i]
+            for i in r2:
+                [act.set_risk2(risk_2) for act in activities if act.index==i]
+            for i in r3:
+                [act.set_risk3(risk_1, risk_2) for act in activities if act.index==i]
+
     def run_genetic(self):
         print('......')
         self.menu()
@@ -313,7 +343,12 @@ class Genetic:
             self.chromosomes = crossed_and_mutated
             print(f'Current Generation: {i}')
             print(f'Current fitness: {self.fitness_reference.end}')
-        prnt.print_to_file(Chromosome(genes=self.best_makespan, fitness= self.fitness_reference.end), self.file_name, self.generations, self.nPob)
+        # Termina genético
+        self.set_risk(self.best_makespan)
+        p = Parallel(self.best_makespan, self.resources, with_logs= True, single_esc = False)
+        p.run()
+        #prnt.print_to_file(Chromosome(genes=self.best_makespan, fitness= self.fitness_reference.end), self.file_name, self.generations, self.nPob)
     
 
 
+        
