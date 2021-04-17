@@ -5,6 +5,7 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Text;
 
 namespace ActivityJsonGenerator
 {
@@ -13,7 +14,24 @@ namespace ActivityJsonGenerator
         private const string BaseUri = @"D:\VS\Proyecto SGS UIS\SGS Proy UIS\ActivityJsonGenerator\";
         public static async Task Main(string[] args)
         {
+            Console.WriteLine("Option: ");
+            int option = int.Parse(Console.ReadLine());
 
+            switch (option)
+            {
+                case 1:
+                    await GenerateActivities();
+                    break;
+                case 2:
+                    await ParseSolutions();
+                    break;
+            }
+
+            
+        }
+
+        private static async Task GenerateActivities()
+        {
             //string[] fileArray = Directory.GetFiles($@"{BaseUri}instanciasj30\", "*.sm");j3023_9.sm
             string[] fileArrayJ30 =
             {
@@ -33,6 +51,52 @@ namespace ActivityJsonGenerator
                 //, new JsonSerializerOptions { WriteIndented = true }
                 await JsonSerializer.SerializeAsync(createStream, instance);
             }
+        }
+
+        private static async Task ParseSolutions()
+        {
+            Console.WriteLine("Parsing solutions");
+            var directory = new DirectoryInfo(@$"{BaseUri}Results\");
+            var fileInfos = directory.GetFiles();
+            Console.WriteLine($"Number of files: {fileInfos.Count()}");
+            string activities = "";
+            foreach (var fileinfo in fileInfos){
+                Console.WriteLine(fileinfo.Name);
+                activities +=$"## {fileinfo.Name}\n";
+                activities += await ParseFile(fileinfo.FullName, fileinfo.Name.Replace(".py", ""));
+                activities += "\n\n";           
+            }
+            using FileStream createStream = File.Create(@$"{BaseUri}\Out.txt");
+            var bytes = Encoding.UTF8.GetBytes(activities);
+            createStream.Write(bytes, 0, bytes.Length);
+        }
+
+
+        private static async Task<string> ParseFile(string filePath, string fileName)
+        {
+            string content = await File.ReadAllTextAsync(filePath);
+            var contentArray = content.Split("\n")
+                .Where(line => line != "\r")
+                .Select(line => line.Replace("\r", ""))
+                .ToList();
+            contentArray = contentArray.GetRange(2, contentArray.Count - 8);
+
+            var textOutput = "";
+            foreach(var line in contentArray)
+            {
+                var fields = line.Split("|").Select(line => line.Trim()).ToList();
+                fields[4] = string.IsNullOrEmpty(fields[4])? "[0]" : $"[{fields[4].Substring(0, fields[4].Length - 1)}]";
+                textOutput += $"{fileName}.append(Activity(";
+                for(int i = 1; i<fields.Count-1; i++)
+                {
+                    var comma = i == fields.Count-2? "" : ",";
+                    var spacing = i == 4 || i == 5? 17 : 8;
+                    spacing = i == 1 ? 3 : spacing;
+                    textOutput += string.Format($"{{0, {spacing}}}", $"{fields[i]}{comma}");
+                }
+                textOutput += "))\n";
+            }
+            return textOutput;
         }
 
         private static async Task<Instance> GetInstanceAsync(string fileName)

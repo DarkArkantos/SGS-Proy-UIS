@@ -8,8 +8,8 @@ from typing import List
 import utils.activities_utils as gen_act
 from utils.ThreadWithReturn import ThreadWithReturn
 import utils.print as prnt
+import utils.file_uitls as futils
 from genetics.chromosome import Chromosome
-import marshmallow_dataclass
 import copy
 import sys
 import time
@@ -66,15 +66,8 @@ class Genetic:
         ## Test: D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instancej301_2.json
         print('\n')
         self.experimental = False
-        basefilePath = "D:\VS\Proyecto SGS UIS\SGS Proy UIS\Resources\instance"
         self.file_name = input('Ingrese la instancia a ejecutar (ej. j603_5): ')
-        print('\nReading Json file...')      
-        instance_schema = marshmallow_dataclass.class_schema(Instance, base_schema=PascalScheme)()
-
-        with open(f'{basefilePath}{self.file_name}.json', 'r', encoding='utf-8', errors='ignore') as j:
-            json_dic = json.loads(j.read())
-
-        instance: Instance = instance_schema.load(json_dic)
+        instance: Instance = futils.get_instance_from_file(file_name)
         self.resources:Resources = Resources(instance.resources)
         for i in range(self.nPob):
             activities = copy.deepcopy(instance.activities)
