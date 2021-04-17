@@ -1,0 +1,100 @@
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/07/20 09:07:46 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  option limrow = 50;
+   2  option reslim = 1000000000;
+   3  option MIP=Cplex;
+   4   
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/07/20 09:07:46 Page 2
+REDUCED OUTPUT
+C o m p i l a t i o n
+
+
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 Mb  WEX234-234 May 21, 2010
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/07/20 09:07:46 Page 3
+REDUCED OUTPUT
+Model Statistics    SOLVE PROYECTOS Using MIP From line 200
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS        5,341
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES        2,081
+NON ZERO ELEMENTS        13,139     DISCRETE VARIABLES      2,016
+
+
+GENERATION TIME      =        0.063 SECONDS      5 Mb  WEX234-234 May 21, 2010
+
+
+EXECUTION TIME       =        0.063 SECONDS      5 Mb  WEX234-234 May 21, 2010
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/07/20 09:07:46 Page 4
+REDUCED OUTPUT
+Solution Report     SOLVE PROYECTOS Using MIP From line 200
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   PROYECTOS           OBJECTIVE  pp
+     TYPE    MIP                 DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  200
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE               63.0000
+
+ RESOURCE USAGE, LIMIT          2.299 1000000000.000
+ ITERATION COUNT, LIMIT     12775    2000000000
+
+IBM ILOG CPLEX   May 24, 2010 23.4.3 WEX 17710.17719 WEI x86_64/MS Windows
+Cplex 12.1.0, GAMS Link 34 
+Cplex licensed for 1 use of parallel lp, mip and barrier.
+
+Cplex MIP uses 1 of 4 parallel threads. Change default with option THREADS.
+MIP status(101): integer optimal solution
+Fixed MIP status(1): optimal
+Proven optimal solution.
+
+MIP Solution:           63.000000    (12775 iterations, 517 nodes)
+Final Solve:            63.000000    (0 iterations)
+
+Best possible:          63.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/07/20 09:07:46 Page 5
+REDUCED OUTPUT
+E x e c u t i o n
+
+
+----    202 VARIABLE sreal.L  periodo de inicio real transformado
+
+5  16.000,    6  18.000,    7  15.000,    8  26.000,    9  16.000,    10  2.000
+11 21.000,    12 15.000,    13 21.000,    14 42.000,    15 33.000,    16 21.000
+17 21.000,    18 37.000,    19 23.000,    20 46.000,    21 43.000,    22  7.000
+23 51.000,    24 21.000,    25 45.000,    26 42.000,    27 53.000,    28 37.000
+29 44.000,    30 54.000,    31 53.000,    32 62.000
+
+
+
+EXECUTION TIME       =        0.000 SECONDS      3 Mb  WEX234-234 May 21, 2010
+
+
+USER: Gary Goldstein                                 G010614:2121CA-WIN
+      Decision Ware, Inc.                                        DC2807
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Nestor Ortiz\Desktop\UIS RCPSP\Grupo 1 2020\Duban\Archivos p
+           ara correr en GAMS\Linea Base Asc j301_2.gms
+Output     C:\Users\Nestor Ortiz\Documents\gamsdir\projdir\Linea Base Asc j301_2
+           .lst

@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>SGS Proy UIS</Name>
     <RootNamespace>SGS Proy UIS</RootNamespace>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,12 @@
     <Compile Include="sgs\base_model.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="solutions\j30.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="solutions\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\activities_utils.py">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +71,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SGS_Proy_UIS.py" />
+    <Compile Include="utils\file_uitls.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\print.py">
       <SubType>Code</SubType>
     </Compile>
@@ -83,6 +93,7 @@
   <ItemGroup>
     <Folder Include="genetics\" />
     <Folder Include="models\" />
+    <Folder Include="solutions\" />
     <Folder Include="sgs\" />
     <Folder Include="utils\" />
   </ItemGroup>

@@ -1,0 +1,105 @@
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/13/20 17:17:54 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  option limrow = 50;
+   2  option reslim = 1000000000;
+   3  option MIP=Cplex;
+   4   
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/13/20 17:17:54 Page 2
+REDUCED OUTPUT
+C o m p i l a t i o n
+
+
+
+
+COMPILATION TIME     =        0.015 SECONDS      3 Mb  WEX234-234 May 21, 2010
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/13/20 17:17:54 Page 3
+REDUCED OUTPUT
+Model Statistics    SOLVE PROYECTOS Using MIP From line 229
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           9     SINGLE EQUATIONS       11,089
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES        3,265
+NON ZERO ELEMENTS        29,626     DISCRETE VARIABLES      3,200
+
+
+GENERATION TIME      =        0.032 SECONDS      6 Mb  WEX234-234 May 21, 2010
+
+
+EXECUTION TIME       =        0.032 SECONDS      6 Mb  WEX234-234 May 21, 2010
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/13/20 17:17:54 Page 4
+REDUCED OUTPUT
+Solution Report     SOLVE PROYECTOS Using MIP From line 229
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   PROYECTOS           OBJECTIVE  pp
+     TYPE    MIP                 DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  229
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE               99.0000
+
+ RESOURCE USAGE, LIMIT      28999.004 1000000000.000
+ ITERATION COUNT, LIMIT  79824907    2000000000
+
+IBM ILOG CPLEX   May 24, 2010 23.4.3 WEX 17710.17719 WEI x86_64/MS Windows
+Cplex 12.1.0, GAMS Link 34 
+Cplex licensed for 1 use of parallel lp, mip and barrier.
+
+Cplex MIP uses 1 of 4 parallel threads. Change default with option THREADS.
+MIP status(101): integer optimal solution
+Fixed MIP status(4): unbounded or infeasible
+Presolve found the problem infeasible or unbounded.
+Rerunning with presolve turned off.
+Fixed MIP status(3): infeasible
+Dual infeasible or unbounded. Switching to primal to aid diagnosis.
+Fixed MIP status(3): infeasible
+Final solve did not return an optimal solution.
+Returning a primal only solution to GAMS (marginals all set to 0.0).
+Proven optimal solution.
+
+MIP Solution:           99.000000    (79824840 iterations, 17804 nodes)
+Best possible:          99.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS Rev 234  WEX-WEI 23.4.3 x86_64/MS Windows          10/13/20 17:17:54 Page 5
+REDUCED OUTPUT
+E x e c u t i o n
+
+
+----    231 VARIABLE sreal.L  periodo de inicio real transformado
+
+5   3.000,    6  12.000,    7  24.000,    8  34.000,    9  19.000,    10 48.000
+11 34.000,    12 60.000,    13 38.000,    14 49.000,    15 78.000,    16 13.000
+17 61.000,    18 58.000,    19 53.000,    20 38.000,    21 58.000,    22 61.000
+23 69.000,    24 88.000,    25 69.000,    26 79.000,    27 70.000,    28 80.000
+29 81.000,    30 87.000,    31 93.000,    32 98.000
+
+
+
+EXECUTION TIME       =        0.016 SECONDS      4 Mb  WEX234-234 May 21, 2010
+
+
+USER: Gary Goldstein                                 G010614:2121CA-WIN
+      Decision Ware, Inc.                                        DC2807
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Nestor Ortiz\Desktop\UIS RCPSP\Grupo 1 2020\Duban\Archivos p
+           ara correr en GAMS\Linea Base Asc6 j3037_8.gms
+Output     C:\Users\Nestor Ortiz\Documents\gamsdir\projdir\Linea Base Asc6 j3037
+           _8.lst

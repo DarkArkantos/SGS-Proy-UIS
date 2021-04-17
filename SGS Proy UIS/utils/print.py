@@ -6,9 +6,9 @@ from genetics.chromosome import Chromosome
 header = '    #      Inicio   Duración      Precedencia         Recursos          Activo   Completado  Elegible Finalización '
 divider = '-------------------------------------------------------------------------------------------------------------'
 
-def print_resources(res: List[int]):
-    for i in range(res):
-        print(f'R{i}: {res[i]}\n')
+def print_resources(res: Resources):
+    for i in range(len(res.resources)):
+        print(f'R{i}: {res.resources[i]}\n')
 
 def print_timestamp(smc:List[int]):
     for sm in range(len(smc)):
